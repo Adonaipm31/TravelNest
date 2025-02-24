@@ -24,6 +24,7 @@ public class SecurityConfig {
 						.requestMatchers("/hotel").permitAll()
 						.requestMatchers("/contact").permitAll()
 						.requestMatchers("/login").permitAll()
+						.requestMatchers("/signup").permitAll()
 						.requestMatchers("/css/**", "/js/**", "/images/**").permitAll()
 						.anyRequest().authenticated()
 
