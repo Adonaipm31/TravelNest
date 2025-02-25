@@ -1,8 +1,9 @@
 https://uiverse.io/Pradeepsaranbishnoi/strong-treefrog-90
 https://uiverse.io/cbolson/slippery-treefrog-30
-https://uiverse.io/Yaya12085/short-panda-24
+https://uiverse.io/Yaya12085/short-panda-24 (Implementado)----------------------------
 https://uiverse.io/SmookyDev/tricky-husky-54 (Mejor opcion)
 https://uiverse.io/javierBarroso/great-cow-5 (Aplicaciones)
+https://uiverse.io/andrew-demchenk0/giant-termite-81
 ____________________________________________________________
 1. Cambiar los iconos de aplicaciones
 2. Añadir tema oscuro
