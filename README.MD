@@ -26,3 +26,4 @@ ____________________________________________________________
 19. Arreglar link de Hotel Intercontinental ✔----------------
 20. Añadir algun ingreso u beneficio para nosotros por medio de un carrito y para crear su plan 
 21. Añadir formulario de como encontro la pagina el usuario si por medio de anuncios, amigos, publicidad etc
+22. Añadir metodo de recuperacion de contraseñas 
