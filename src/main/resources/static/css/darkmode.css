@@ -6,33 +6,26 @@
 
 /* Cambia los fondos de las secciones principales */
 .dark-mode .sub-header,
-.dark-mode header,
+.dark-mode .header-area,
 .dark-mode footer {
     background-color: #222;
-}
-
-/* Cambia el color del texto 
-.dark-mode p, 
-.dark-mode a, 
-.dark-mode h1, 
-.dark-mode h2, 
-.dark-mode h3 {
-    color: #f5f5f5 !important;
-}*/
-
-/* Ajusta los botones */
-.dark-mode .btn .pagination{
-    background-color: #444;
     color: white;
 }
-.nav>a{
-    color: rgb(238, 68, 16);
-}
 
 
-.dark-mode .btn:hover {
-    background-color: #666;
+/* Ajusta los botones */
+
+.dark-mode .nav a,
+.dark-mode .btn{
+    color: white;
 }
+.dark-mode .header-area h1{
+	color: white;
+}
+.dark-mode .header-area a{
+	color: white;
+}
+
 
 /* Cambia el fondo de los inputs */
 .dark-mode input, 
