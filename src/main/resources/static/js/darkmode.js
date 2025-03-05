@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const toggle = document.getElementById("darkModeToggle");
     const body = document.body;
-    const elements = document.querySelectorAll(".sub-header, header, footer, .btn, input, .pagination, .nav");
+    const elements = document.querySelectorAll("areaav");
 
     // Restaurar el estado del modo oscuro
     if (localStorage.getItem("theme") === "dark") {
