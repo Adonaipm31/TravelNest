@@ -8,7 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class SitiosTuristicos implements Serializable{
@@ -23,7 +23,7 @@ public class SitiosTuristicos implements Serializable{
 	private String descripcion;
 	private String sitio_web;
 	
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	private ListaActividad id_lista;
 
 	public SitiosTuristicos(Long id, String nombre, String ubicacion, String descripcion, String sitio_web,

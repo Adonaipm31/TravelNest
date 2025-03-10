@@ -8,7 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Restaurante implements Serializable{
@@ -24,7 +24,7 @@ public class Restaurante implements Serializable{
 	private byte calificacion;
 	private String sitio_web;
 	
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	private ListaActividad id_lista;
 
 	public Restaurante(Long id, String nombre, String ubicacion, String descripcion, byte calificacion,

@@ -29,7 +29,7 @@
 
 /* Cambia el fondo de los inputs */
 .dark-mode input, 
-.dark-mode textarea {
+.dark-mode textarea{
     background-color: #333;
     color: white;
     border: 1px solid #555;
