@@ -9,8 +9,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
+
 @Entity
-public class Hotel implements Serializable{
+public class Rooftop implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,20 +22,24 @@ public class Hotel implements Serializable{
 	@Lob
 	private String descripcion;
 	private byte calificacion;
+	private String tipoAmbiente;
+	private Boolean disponibilidad;
 	private String url_image;
 	private String sitio_web;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	private ListaActividad id_lista;
 
-	public Hotel(Long id, String nombre, String ubicacion, String descripcion, byte calificacion, String url_image,
-			String sitio_web, ListaActividad id_lista) {
+	public Rooftop(Long id, String nombre, String ubicacion, String descripcion, byte calificacion, String tipoAmbiente,
+			Boolean disponibilidad, String url_image, String sitio_web, ListaActividad id_lista) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.ubicacion = ubicacion;
 		this.descripcion = descripcion;
 		this.calificacion = calificacion;
+		this.tipoAmbiente = tipoAmbiente;
+		this.disponibilidad = disponibilidad;
 		this.url_image = url_image;
 		this.sitio_web = sitio_web;
 		this.id_lista = id_lista;
@@ -80,6 +85,22 @@ public class Hotel implements Serializable{
 		this.calificacion = calificacion;
 	}
 
+	public String getTipoAmbiente() {
+		return tipoAmbiente;
+	}
+
+	public void setTipoAmbiente(String tipoAmbiente) {
+		this.tipoAmbiente = tipoAmbiente;
+	}
+
+	public Boolean getDisponibilidad() {
+		return disponibilidad;
+	}
+
+	public void setDisponibilidad(Boolean disponibilidad) {
+		this.disponibilidad = disponibilidad;
+	}
+
 	public String getUrl_image() {
 		return url_image;
 	}
@@ -103,6 +124,6 @@ public class Hotel implements Serializable{
 	public void setId_lista(ListaActividad id_lista) {
 		this.id_lista = id_lista;
 	}
-
-		
+	
+	
 }

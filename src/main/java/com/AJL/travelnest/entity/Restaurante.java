@@ -8,7 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Restaurante implements Serializable{
@@ -22,13 +22,14 @@ public class Restaurante implements Serializable{
 	@Lob
 	private String descripcion;
 	private byte calificacion;
+	private String url_image;
 	private String sitio_web;
 	
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	private ListaActividad id_lista;
 
 	public Restaurante(Long id, String nombre, String ubicacion, String descripcion, byte calificacion,
-			String sitio_web, ListaActividad id_lista) {
+			String sitio_web, String url_image, ListaActividad id_lista) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -36,6 +37,7 @@ public class Restaurante implements Serializable{
 		this.descripcion = descripcion;
 		this.calificacion = calificacion;
 		this.sitio_web = sitio_web;
+		this.url_image = url_image;
 		this.id_lista = id_lista;
 	}
 
@@ -87,6 +89,14 @@ public class Restaurante implements Serializable{
 		this.sitio_web = sitio_web;
 	}
 
+	public String getUrl_image() {
+		return url_image;
+	}
+
+	public void setUrl_image(String url_image) {
+		this.url_image = url_image;
+	}
+
 	public ListaActividad getId_lista() {
 		return id_lista;
 	}
@@ -94,7 +104,6 @@ public class Restaurante implements Serializable{
 	public void setId_lista(ListaActividad id_lista) {
 		this.id_lista = id_lista;
 	}
-	
-	
+
 	
 }

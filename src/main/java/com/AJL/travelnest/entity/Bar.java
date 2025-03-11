@@ -9,8 +9,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
+
 @Entity
-public class Hotel implements Serializable{
+public class Bar implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,13 +22,13 @@ public class Hotel implements Serializable{
 	@Lob
 	private String descripcion;
 	private byte calificacion;
-	private String url_image;
+	private String tipoAmbiente;
 	private String sitio_web;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	private ListaActividad id_lista;
 
-	public Hotel(Long id, String nombre, String ubicacion, String descripcion, byte calificacion, String url_image,
+	public Bar(Long id, String nombre, String ubicacion, String descripcion, byte calificacion, String tipoAmbiente,
 			String sitio_web, ListaActividad id_lista) {
 		super();
 		this.id = id;
@@ -35,7 +36,7 @@ public class Hotel implements Serializable{
 		this.ubicacion = ubicacion;
 		this.descripcion = descripcion;
 		this.calificacion = calificacion;
-		this.url_image = url_image;
+		this.tipoAmbiente = tipoAmbiente;
 		this.sitio_web = sitio_web;
 		this.id_lista = id_lista;
 	}
@@ -80,12 +81,12 @@ public class Hotel implements Serializable{
 		this.calificacion = calificacion;
 	}
 
-	public String getUrl_image() {
-		return url_image;
+	public String getTipoAmbiente() {
+		return tipoAmbiente;
 	}
 
-	public void setUrl_image(String url_image) {
-		this.url_image = url_image;
+	public void setTipoAmbiente(String tipoAmbiente) {
+		this.tipoAmbiente = tipoAmbiente;
 	}
 
 	public String getSitio_web() {
@@ -103,6 +104,6 @@ public class Hotel implements Serializable{
 	public void setId_lista(ListaActividad id_lista) {
 		this.id_lista = id_lista;
 	}
-
-		
+	
+	
 }

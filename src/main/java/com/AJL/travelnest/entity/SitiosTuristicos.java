@@ -8,7 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class SitiosTuristicos implements Serializable{
@@ -21,19 +21,19 @@ public class SitiosTuristicos implements Serializable{
 	private String ubicacion;
 	@Lob
 	private String descripcion;
-	private String sitio_web;
+	private String url_image;
 	
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	private ListaActividad id_lista;
 
-	public SitiosTuristicos(Long id, String nombre, String ubicacion, String descripcion, String sitio_web,
+	public SitiosTuristicos(Long id, String nombre, String ubicacion, String descripcion, String url_image,
 			ListaActividad id_lista) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.ubicacion = ubicacion;
 		this.descripcion = descripcion;
-		this.sitio_web = sitio_web;
+		this.url_image = url_image;
 		this.id_lista = id_lista;
 	}
 
@@ -69,12 +69,12 @@ public class SitiosTuristicos implements Serializable{
 		this.descripcion = descripcion;
 	}
 
-	public String getSitio_web() {
-		return sitio_web;
+	public String getUrl_image() {
+		return url_image;
 	}
 
-	public void setSitio_web(String sitio_web) {
-		this.sitio_web = sitio_web;
+	public void setUrl_image(String url_image) {
+		this.url_image = url_image;
 	}
 
 	public ListaActividad getId_lista() {
@@ -84,6 +84,7 @@ public class SitiosTuristicos implements Serializable{
 	public void setId_lista(ListaActividad id_lista) {
 		this.id_lista = id_lista;
 	}
+
 	
 	
 }
