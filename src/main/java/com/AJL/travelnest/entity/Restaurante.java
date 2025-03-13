@@ -24,12 +24,9 @@ public class Restaurante implements Serializable{
 	private byte calificacion;
 	private String url_image;
 	private String sitio_web;
-	
-	@ManyToOne(fetch = FetchType.EAGER)
-	private ListaActividad id_lista;
 
 	public Restaurante(Long id, String nombre, String ubicacion, String descripcion, byte calificacion,
-			String sitio_web, String url_image, ListaActividad id_lista) {
+			String sitio_web, String url_image) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -38,7 +35,6 @@ public class Restaurante implements Serializable{
 		this.calificacion = calificacion;
 		this.sitio_web = sitio_web;
 		this.url_image = url_image;
-		this.id_lista = id_lista;
 	}
 
 	public Long getId() {
@@ -97,13 +93,5 @@ public class Restaurante implements Serializable{
 		this.url_image = url_image;
 	}
 
-	public ListaActividad getId_lista() {
-		return id_lista;
-	}
-
-	public void setId_lista(ListaActividad id_lista) {
-		this.id_lista = id_lista;
-	}
-
-	
+		
 }

@@ -23,12 +23,9 @@ public class Hotel implements Serializable{
 	private byte calificacion;
 	private String url_image;
 	private String sitio_web;
-	
-	@ManyToOne(fetch = FetchType.EAGER)
-	private ListaActividad id_lista;
 
 	public Hotel(Long id, String nombre, String ubicacion, String descripcion, byte calificacion, String url_image,
-			String sitio_web, ListaActividad id_lista) {
+			String sitio_web) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -37,7 +34,6 @@ public class Hotel implements Serializable{
 		this.calificacion = calificacion;
 		this.url_image = url_image;
 		this.sitio_web = sitio_web;
-		this.id_lista = id_lista;
 	}
 
 	public Long getId() {
@@ -95,14 +91,5 @@ public class Hotel implements Serializable{
 	public void setSitio_web(String sitio_web) {
 		this.sitio_web = sitio_web;
 	}
-
-	public ListaActividad getId_lista() {
-		return id_lista;
-	}
-
-	public void setId_lista(ListaActividad id_lista) {
-		this.id_lista = id_lista;
-	}
-
 		
 }

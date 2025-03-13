@@ -25,11 +25,9 @@ public class Bar implements Serializable {
 	private String tipoAmbiente;
 	private String sitio_web;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
-	private ListaActividad id_lista;
 
 	public Bar(Long id, String nombre, String ubicacion, String descripcion, byte calificacion, String tipoAmbiente,
-			String sitio_web, ListaActividad id_lista) {
+			String sitio_web) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -38,7 +36,6 @@ public class Bar implements Serializable {
 		this.calificacion = calificacion;
 		this.tipoAmbiente = tipoAmbiente;
 		this.sitio_web = sitio_web;
-		this.id_lista = id_lista;
 	}
 
 	public Long getId() {
@@ -97,13 +94,5 @@ public class Bar implements Serializable {
 		this.sitio_web = sitio_web;
 	}
 
-	public ListaActividad getId_lista() {
-		return id_lista;
-	}
-
-	public void setId_lista(ListaActividad id_lista) {
-		this.id_lista = id_lista;
-	}
-	
 	
 }

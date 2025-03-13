@@ -23,18 +23,13 @@ public class SitiosTuristicos implements Serializable{
 	private String descripcion;
 	private String url_image;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
-	private ListaActividad id_lista;
-
-	public SitiosTuristicos(Long id, String nombre, String ubicacion, String descripcion, String url_image,
-			ListaActividad id_lista) {
+	public SitiosTuristicos(Long id, String nombre, String ubicacion, String descripcion, String url_image) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.ubicacion = ubicacion;
 		this.descripcion = descripcion;
 		this.url_image = url_image;
-		this.id_lista = id_lista;
 	}
 
 	public Long getId() {
@@ -77,14 +72,5 @@ public class SitiosTuristicos implements Serializable{
 		this.url_image = url_image;
 	}
 
-	public ListaActividad getId_lista() {
-		return id_lista;
-	}
-
-	public void setId_lista(ListaActividad id_lista) {
-		this.id_lista = id_lista;
-	}
-
-	
 	
 }
