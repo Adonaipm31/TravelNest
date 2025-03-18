@@ -21,4 +21,6 @@ public class BarService {
 	public List<Bar> listarB(){
 		return brepo.findAll();
 	}
+	
+	
 }
