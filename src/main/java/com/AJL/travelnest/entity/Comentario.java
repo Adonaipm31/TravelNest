@@ -17,14 +17,14 @@ public class Comentario implements Serializable{
 	private Long id;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	private Turista id_turista;
+	private Turista turista;
 	
 	private String descripcion;
 
-	public Comentario(Long id, Turista id_turista, String descripcion) {
+	public Comentario(Long id, Turista turista, String descripcion) {
 		super();
 		this.id = id;
-		this.id_turista = id_turista;
+		this.turista = turista;
 		this.descripcion = descripcion;
 	}
 
@@ -36,12 +36,12 @@ public class Comentario implements Serializable{
 		this.id = id;
 	}
 
-	public Turista getId_turista() {
-		return id_turista;
+	public Turista getTurista() {
+		return turista;
 	}
 
-	public void setId_turista(Turista id_turista) {
-		this.id_turista = id_turista;
+	public void setTurista(Turista turista) {
+		this.turista = turista;
 	}
 
 	public String getDescripcion() {
@@ -52,7 +52,4 @@ public class Comentario implements Serializable{
 		this.descripcion = descripcion;
 	}
 
-	
-	
-	
 }
