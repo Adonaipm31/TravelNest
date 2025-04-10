@@ -26,7 +26,7 @@ services:
     networks:
       - backendTravel
 
-  mongodb-relational-migr	ator:
+  mongodb-relational-migrator:
     image: public.ecr.aws/v4d7k6c9/relational-migrator:latest
     container_name: mongodb-relational-migrator
     ports:
