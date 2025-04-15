@@ -1,46 +1,40 @@
 package com.AJL.travelnest.entity;
 
-import java.io.Serializable;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
-import jakarta.persistence.ManyToOne;
-@Entity
-public class Hotel implements Serializable{
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	
-	private String nombre;
-	private String ubicacion;
-	@Lob
-	private String descripcion;
-	private byte calificacion;
-	private String url_image;
-	private String sitio_web;
+@Document(collection = "hoteles")
+public class Hotel {
+    @Id
+    private String id;
 
-	public Hotel(Long id, String nombre, String ubicacion, String descripcion, byte calificacion, String url_image,
-			String sitio_web) {
+    private String nombre;
+
+    private Direccion direccion;
+
+    private double precioPromedio;
+
+    private int numeroHabitaciones;
+
+    private double calificacion;
+
+	public Hotel(String id, String nombre, Direccion direccion, double precioPromedio, int numeroHabitaciones,
+			double calificacion) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
-		this.ubicacion = ubicacion;
-		this.descripcion = descripcion;
+		this.direccion = direccion;
+		this.precioPromedio = precioPromedio;
+		this.numeroHabitaciones = numeroHabitaciones;
 		this.calificacion = calificacion;
-		this.url_image = url_image;
-		this.sitio_web = sitio_web;
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -52,44 +46,36 @@ public class Hotel implements Serializable{
 		this.nombre = nombre;
 	}
 
-	public String getUbicacion() {
-		return ubicacion;
+	public Direccion getDireccion() {
+		return direccion;
 	}
 
-	public void setUbicacion(String ubicacion) {
-		this.ubicacion = ubicacion;
+	public void setDireccion(Direccion direccion) {
+		this.direccion = direccion;
 	}
 
-	public String getDescripcion() {
-		return descripcion;
+	public double getPrecioPromedio() {
+		return precioPromedio;
 	}
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setPrecioPromedio(double precioPromedio) {
+		this.precioPromedio = precioPromedio;
 	}
 
-	public byte getCalificacion() {
+	public int getNumeroHabitaciones() {
+		return numeroHabitaciones;
+	}
+
+	public void setNumeroHabitaciones(int numeroHabitaciones) {
+		this.numeroHabitaciones = numeroHabitaciones;
+	}
+
+	public double getCalificacion() {
 		return calificacion;
 	}
 
-	public void setCalificacion(byte calificacion) {
+	public void setCalificacion(double calificacion) {
 		this.calificacion = calificacion;
 	}
-
-	public String getUrl_image() {
-		return url_image;
-	}
-
-	public void setUrl_image(String url_image) {
-		this.url_image = url_image;
-	}
-
-	public String getSitio_web() {
-		return sitio_web;
-	}
-
-	public void setSitio_web(String sitio_web) {
-		this.sitio_web = sitio_web;
-	}
-		
+    
 }
