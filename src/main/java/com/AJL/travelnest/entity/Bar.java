@@ -1,98 +1,84 @@
 package com.AJL.travelnest.entity;
 
-import java.io.Serializable;
+import java.util.List;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
-import jakarta.persistence.ManyToOne;
 
-@Entity
-public class Bar implements Serializable {
+@Document(collection = "bares")
+public class Bar {
+    @Id
+    private String id;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	
-	private String nombre;
-	private String ubicacion;
-	@Lob
-	private String descripcion;
-	private byte calificacion;
-	private String tipoAmbiente;
-	private String sitio_web;
-	
-
-	public Bar(Long id, String nombre, String ubicacion, String descripcion, byte calificacion, String tipoAmbiente,
-			String sitio_web) {
+    private String nombre;
+    private Direccion direccion;
+    private double precioPromedio;
+    private List<HorarioAtencion> horarioAtencion;
+    private String tipo;
+    private String tipoMusica; 
+    private double calificacion;
+	public Bar(String id, String nombre, Direccion direccion, double precioPromedio,
+			List<HorarioAtencion> horarioAtencion, String tipo, String tipoMusica, double calificacion) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
-		this.ubicacion = ubicacion;
-		this.descripcion = descripcion;
+		this.direccion = direccion;
+		this.precioPromedio = precioPromedio;
+		this.horarioAtencion = horarioAtencion;
+		this.tipo = tipo;
+		this.tipoMusica = tipoMusica;
 		this.calificacion = calificacion;
-		this.tipoAmbiente = tipoAmbiente;
-		this.sitio_web = sitio_web;
 	}
-
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
-
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
-
 	public String getNombre() {
 		return nombre;
 	}
-
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
-	public String getUbicacion() {
-		return ubicacion;
+	public Direccion getDireccion() {
+		return direccion;
 	}
-
-	public void setUbicacion(String ubicacion) {
-		this.ubicacion = ubicacion;
+	public void setDireccion(Direccion direccion) {
+		this.direccion = direccion;
 	}
-
-	public String getDescripcion() {
-		return descripcion;
+	public double getPrecioPromedio() {
+		return precioPromedio;
 	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setPrecioPromedio(double precioPromedio) {
+		this.precioPromedio = precioPromedio;
 	}
-
-	public byte getCalificacion() {
+	public List<HorarioAtencion> getHorarioAtencion() {
+		return horarioAtencion;
+	}
+	public void setHorarioAtencion(List<HorarioAtencion> horarioAtencion) {
+		this.horarioAtencion = horarioAtencion;
+	}
+	public String getTipo() {
+		return tipo;
+	}
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+	public String getTipoMusica() {
+		return tipoMusica;
+	}
+	public void setTipoMusica(String tipoMusica) {
+		this.tipoMusica = tipoMusica;
+	}
+	public double getCalificacion() {
 		return calificacion;
 	}
-
-	public void setCalificacion(byte calificacion) {
+	public void setCalificacion(double calificacion) {
 		this.calificacion = calificacion;
 	}
-
-	public String getTipoAmbiente() {
-		return tipoAmbiente;
-	}
-
-	public void setTipoAmbiente(String tipoAmbiente) {
-		this.tipoAmbiente = tipoAmbiente;
-	}
-
-	public String getSitio_web() {
-		return sitio_web;
-	}
-
-	public void setSitio_web(String sitio_web) {
-		this.sitio_web = sitio_web;
-	}
-
-	
+    
+    
 }
+

@@ -1,97 +1,69 @@
 package com.AJL.travelnest.entity;
 
-import java.io.Serializable;
+import java.util.List;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
-import jakarta.persistence.ManyToOne;
 
-@Entity
-public class Restaurante implements Serializable{
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	
-	private String nombre;
-	private String ubicacion;
-	@Lob
-	private String descripcion;
-	private byte calificacion;
-	private String url_image;
-	private String sitio_web;
+@Document(collection = "restaurantes")
+public class Restaurante {
+    @Id
+    private String id;
 
-	public Restaurante(Long id, String nombre, String ubicacion, String descripcion, byte calificacion,
-			String sitio_web, String url_image) {
+    private String nombre;
+    private Direccion direccion;
+    private double precioPromedio;
+    private List<MenuItem> menuPrincipal;
+    private double calificacion;
+    
+	public Restaurante(String id, String nombre, Direccion direccion, double precioPromedio,
+			List<MenuItem> menuPrincipal, double calificacion) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
-		this.ubicacion = ubicacion;
-		this.descripcion = descripcion;
+		this.direccion = direccion;
+		this.precioPromedio = precioPromedio;
+		this.menuPrincipal = menuPrincipal;
 		this.calificacion = calificacion;
-		this.sitio_web = sitio_web;
-		this.url_image = url_image;
 	}
-
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
-
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
-
 	public String getNombre() {
 		return nombre;
 	}
-
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
-	public String getUbicacion() {
-		return ubicacion;
+	public Direccion getDireccion() {
+		return direccion;
 	}
-
-	public void setUbicacion(String ubicacion) {
-		this.ubicacion = ubicacion;
+	public void setDireccion(Direccion direccion) {
+		this.direccion = direccion;
 	}
-
-	public String getDescripcion() {
-		return descripcion;
+	public double getPrecioPromedio() {
+		return precioPromedio;
 	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setPrecioPromedio(double precioPromedio) {
+		this.precioPromedio = precioPromedio;
 	}
-
-	public byte getCalificacion() {
+	public List<MenuItem> getMenuPrincipal() {
+		return menuPrincipal;
+	}
+	public void setMenuPrincipal(List<MenuItem> menuPrincipal) {
+		this.menuPrincipal = menuPrincipal;
+	}
+	public double getCalificacion() {
 		return calificacion;
 	}
-
-	public void setCalificacion(byte calificacion) {
+	public void setCalificacion(double calificacion) {
 		this.calificacion = calificacion;
 	}
-
-	public String getSitio_web() {
-		return sitio_web;
-	}
-
-	public void setSitio_web(String sitio_web) {
-		this.sitio_web = sitio_web;
-	}
-
-	public String getUrl_image() {
-		return url_image;
-	}
-
-	public void setUrl_image(String url_image) {
-		this.url_image = url_image;
-	}
-
-		
+    
+    
+    
 }
