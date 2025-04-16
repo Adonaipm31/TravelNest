@@ -10,22 +10,14 @@ import jakarta.persistence.Id;
 public class Restaurante {
     @Id
     private String id;
-
-    private String nombre;
-    private Direccion direccion;
-    private double precioPromedio;
+    private CaracteristicaServicio servicio;
     private List<MenuItem> menuPrincipal;
-    private double calificacion;
     
-	public Restaurante(String id, String nombre, Direccion direccion, double precioPromedio,
-			List<MenuItem> menuPrincipal, double calificacion) {
+	public Restaurante(String id, CaracteristicaServicio servicio, List<MenuItem> menuPrincipal) {
 		super();
 		this.id = id;
-		this.nombre = nombre;
-		this.direccion = direccion;
-		this.precioPromedio = precioPromedio;
+		this.servicio = servicio;
 		this.menuPrincipal = menuPrincipal;
-		this.calificacion = calificacion;
 	}
 	public String getId() {
 		return id;
@@ -33,37 +25,17 @@ public class Restaurante {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getNombre() {
-		return nombre;
+	public CaracteristicaServicio getServicio() {
+		return servicio;
 	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-	public Direccion getDireccion() {
-		return direccion;
-	}
-	public void setDireccion(Direccion direccion) {
-		this.direccion = direccion;
-	}
-	public double getPrecioPromedio() {
-		return precioPromedio;
-	}
-	public void setPrecioPromedio(double precioPromedio) {
-		this.precioPromedio = precioPromedio;
+	public void setServicio(CaracteristicaServicio servicio) {
+		this.servicio = servicio;
 	}
 	public List<MenuItem> getMenuPrincipal() {
 		return menuPrincipal;
 	}
 	public void setMenuPrincipal(List<MenuItem> menuPrincipal) {
 		this.menuPrincipal = menuPrincipal;
-	}
-	public double getCalificacion() {
-		return calificacion;
-	}
-	public void setCalificacion(double calificacion) {
-		this.calificacion = calificacion;
-	}
-    
-    
+	}   
     
 }
