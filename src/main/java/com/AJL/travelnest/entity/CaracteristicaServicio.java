@@ -1,81 +1,62 @@
 package com.AJL.travelnest.entity;
 
-import org.springframework.data.mongodb.core.mapping.Document;
+import jakarta.persistence.Embeddable;
 
-import jakarta.persistence.Id;
-
-@Document(collection = "hoteles")
-public class Hotel {
-    @Id
-    private String id;
-
+@Embeddable
+public class CaracteristicaServicio {
     private String nombre;
-
     private Direccion direccion;
-
+    private String image;
+    private String telefono; 
     private double precioPromedio;
-
-    private int numeroHabitaciones;
-
     private double calificacion;
-
-	public Hotel(String id, String nombre, Direccion direccion, double precioPromedio, int numeroHabitaciones,
-			double calificacion) {
+    
+	public CaracteristicaServicio(String nombre, Direccion direccion, String image, String telefono, double precioPromedio, double calificacion) {
 		super();
-		this.id = id;
 		this.nombre = nombre;
 		this.direccion = direccion;
+		this.image = image;
+		this.telefono = telefono;
 		this.precioPromedio = precioPromedio;
-		this.numeroHabitaciones = numeroHabitaciones;
 		this.calificacion = calificacion;
 	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
 	public String getNombre() {
 		return nombre;
 	}
-
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
 	public Direccion getDireccion() {
 		return direccion;
 	}
-
 	public void setDireccion(Direccion direccion) {
 		this.direccion = direccion;
 	}
-
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image= image;
+	}
+	public String getTelefono() {
+		return telefono;
+	}
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
 	public double getPrecioPromedio() {
 		return precioPromedio;
 	}
-
 	public void setPrecioPromedio(double precioPromedio) {
 		this.precioPromedio = precioPromedio;
 	}
-
-	public int getNumeroHabitaciones() {
-		return numeroHabitaciones;
-	}
-
-	public void setNumeroHabitaciones(int numeroHabitaciones) {
-		this.numeroHabitaciones = numeroHabitaciones;
-	}
-
 	public double getCalificacion() {
 		return calificacion;
 	}
-
 	public void setCalificacion(double calificacion) {
 		this.calificacion = calificacion;
 	}
     
+    
 }
+
