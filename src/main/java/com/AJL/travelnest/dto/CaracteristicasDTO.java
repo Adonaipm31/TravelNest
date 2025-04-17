@@ -1,42 +1,40 @@
-package com.AJL.travelnest.entity;
+package com.AJL.travelnest.dto;
 
-import jakarta.persistence.Embeddable;
+import java.util.List;
 
-@Embeddable
-public class CaracteristicaServicio {
+import com.AJL.travelnest.entity.Direccion;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+public class CaracteristicasDTO {
+	
     private String nombre;
-    private Direccion direccion;
+    @NotNull
+    private DireccionDTO direccion;
+    @NotBlank
     private String image;
     private String telefono; 
     private double precioPromedio;
+    @NotBlank
     private double calificacion;
-    
-	public CaracteristicaServicio(String nombre, Direccion direccion, String image, String telefono, double precioPromedio, double calificacion) {
-		super();
-		this.nombre = nombre;
-		this.direccion = direccion;
-		this.image = image;
-		this.telefono = telefono;
-		this.precioPromedio = precioPromedio;
-		this.calificacion = calificacion;
-	}
 	public String getNombre() {
 		return nombre;
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public Direccion getDireccion() {
+	public DireccionDTO getDireccion() {
 		return direccion;
 	}
-	public void setDireccion(Direccion direccion) {
+	public void setDireccion(DireccionDTO direccion) {
 		this.direccion = direccion;
 	}
 	public String getImage() {
 		return image;
 	}
 	public void setImage(String image) {
-		this.image= image;
+		this.image = image;
 	}
 	public String getTelefono() {
 		return telefono;
@@ -57,6 +55,4 @@ public class CaracteristicaServicio {
 		this.calificacion = calificacion;
 	}
     
-    
 }
-
