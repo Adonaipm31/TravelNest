@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>TravelNest</title>
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/css/styles.css}" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/darkmode.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    
+
+  </head>
+
+<body>
+	<!-- ***** Header Area Start ***** -->
+	  <div th:insert="layout/header :: subHeader"></div>  
+	  <header th:insert="layout/header :: header"></header> 
+  	<!-- ***** Header Area End ***** -->
+
+  <div class="main-banner">
+    <div class="owl-carousel owl-banner">
+      <div class="item item-1">
+        <div class="header-text">
+          <span class="category">El Centro Historico, <em>Cartagena</em></span>
+          <h2>Hurry!<br>Have fun on our boats and walls</h2>
+        </div>
+      </div>
+      <div class="item item-2">
+        <div class="header-text">
+          <span class="category">El Centro Historico, <em>Cartagena</em></span>
+          <h2>Be Quick!<br>Get the best villa in town</h2>
+        </div>
+      </div>
+      <div class="item item-3">
+        <div class="header-text">
+          <span class="category">El Centro Historico, <em>Cartagena</em></span>
+          <h2>Act Now!<br>Get the highest level penthouse</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer th:replace="layout/footer :: footer"></footer>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script th:src="@{/js/jquery.min.js}"></script>
+  <script th:src="@{/js/bootstrap.min.js}"></script>
+  <script th:src="@{/js/darkmode.js}"></script>
+
+  </body>
+</html>

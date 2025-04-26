@@ -1,0 +1,36 @@
+/* Modo oscuro para toda la página */
+.dark-mode {
+    background-color: #1a1a1a !important;
+    color: white !important;
+}
+
+/* Cambia los fondos de las secciones principales */
+.dark-mode .sub-header,
+.dark-mode .header-area,
+.dark-mode footer {
+    background-color: #222;
+    color: white;
+}
+
+
+/* Ajusta los botones */
+
+.dark-mode .nav a,
+.dark-mode .btn{
+    color: white;
+}
+.dark-mode .header-area h1{
+	color: white;
+}
+.dark-mode .header-area a{
+	color: white;
+}
+
+
+/* Cambia el fondo de los inputs */
+.dark-mode input, 
+.dark-mode textarea{
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+}

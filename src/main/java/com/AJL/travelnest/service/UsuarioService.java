@@ -1,0 +1,35 @@
+package com.AJL.travelnest.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.AJL.travelnest.dto.UsuarioDto;
+import com.AJL.travelnest.entity.Usuario;
+import com.AJL.travelnest.repository.UsuarioRepository;
+
+@Service
+public class UsuarioService {
+
+    private final UsuarioRepository usuarioRepository;
+    private final PasswordEncoder passwordEncoder;
+
+    @Autowired
+    public UsuarioService(UsuarioRepository usuarioRepository, PasswordEncoder passwordEncoder) {
+        this.usuarioRepository = usuarioRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
+
+    public Usuario registrarUsuario(UsuarioDto dto) {
+        Usuario usuario = new Usuario();
+        usuario.setNombre(dto.getNombre());
+        usuario.setApellido(dto.getApellido());
+        usuario.setCorreo(dto.getCorreo());
+
+        // Encriptar la contraseña
+        usuario.setPassword(passwordEncoder.encode(dto.getPassword()));
+        usuario.setPais(dto.getPais());
+
+        return usuarioRepository.save(usuario);
+    }
+}

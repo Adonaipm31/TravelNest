@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+  mongodb:
+    image: mongo:4.4
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=rootuser
+      - MONGO_INITDB_ROOT_PASSWORD=rootpass
+    volumes:
+      - data:/data/db
+    networks:
+      - backendTravel
+
+  mongodb-relational-migrator:
+    image: public.ecr.aws/v4d7k6c9/relational-migrator:latest
+    container_name: mongodb-relational-migrator
+    ports:
+      - 8080:8080
+    depends_on:
+      - mongodb
+    networks:
+      - backendTravel
+    volumes:
+      - migrator_data:/root/Migrator
+    environment:
+      - MIGRATOR_PATH_DATA=/root/Migrator
+
+volumes:
+  data: {}
+  migrator_data: {}
+
+networks:
+  backendTravel:
+    name: backendTravel

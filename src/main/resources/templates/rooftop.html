@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+	
+    <title>TravelNest</title>
+
+    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/darkmode.css}">
+    <link rel="stylesheet" th:href="@{css/styles.css}">
+
+  </head>
+
+<body>
+
+	  <div th:replace="layout/header :: subHeader"></div>  
+	  <header th:replace="layout/header :: header"></header> 
+  
+  <div class="page-heading header-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <span class="breadcrumb"><a href="#">Home</a> / Rooftop</span>
+          <h3>Rooftop</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section hotels">
+    <div class="container">
+      <ul class="options-filter">
+        <li>
+          <a class="is_active" href="#!" data-filter="*">Show All</a>
+        </li>
+        <li>
+          <a href="#!" data-filter=".adv">Most Valued</a>
+        </li>
+        <li>
+          <a href="#!" data-filter=".str">Price (Highest First)</a>
+        </li>
+        <li>
+          <a href="#!" data-filter=".rac">Distance to the nearest beach</a>
+        </li>
+      </ul>
+      <div class="row options-box">
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 options-items col-md-6 adv">
+          <div class="item">
+            <a href="#"><img th:src="@{/images/rooftop-01.jpg}" alt=""></a>
+            <span class="category">Modern Rooftop</span>
+            <h6>+60.000 COP</h6>
+            <h4><a href="#">Baroca,Cl. 30 #8 b-120 Piso 3</a></h4>
+            <ul>
+              <li>Qualification: <span>4.9 Stars</span></li>
+              <li>Payment method: <span>Cash-Credit-Debit Card</span></li>
+              <li>Reservation: <span>Recommended</span></li>
+              <li>Atmosphere/style: <span>Bohemian</span></li>
+              <li>Parking: <span>Available</span></li>
+            </ul>
+            <div class="main-button">
+              <a href="https://baroca-rooftop.cluvi.co/" 
+              target="_blank">More Details</Details></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 options-items col-md-6 str">
+          <div class="item">
+            <a href="#"><img th:src="@{/images/rooftop-02.jpg}" alt=""></a>
+            <span class="category">Modern Rooftop</span>
+            <h6>+100.000 COP</h6>
+            <h4><a href="#">Casa Pura,Cra. 2 #31-46</a></h4>
+            <ul>
+              <li>Qualification: <span>4.7 Stars</span></li>
+              <li>Payment method: <span>Cash-Credit Card</span></li>
+              <li>Reservation: <span>Recommended</span></li>
+              <li>Atmosphere/style: <span>Modern</span></li>
+              <li>Parking: <span>Not Available</span></li>
+            </ul>
+            <div class="main-button">
+              <a href="https://www.instagram.com/casapurarooftop/#"
+              target="_blank">More Details</Details></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 options-items col-md-6 adv rac">
+          <div class="item">
+            <a href="#"><img th:src="@{/images/rooftop-03.jpg}" alt=""></a>
+            <span class="category">Luxury Rooftop</span>
+            <h6>+125.000 COP</h6>
+            <h4><a href="#">7 Cielos,Cra. 3 #10-59</a></h4>
+            <ul>
+                <li>Qualification: <span>4.3 Stars</span></li>
+                <li>Payment method: <span>Cash-Credit-Debit Card</span></li>
+                <li>Reservation: <span>Recommended</span></li>
+                <li>Atmosphere/style: <span>Elegant</span></li>
+                <li>Parking: <span>Available</span></li>
+            </ul>
+            <div class="main-button">
+              <a href="https://7cielos.com.co/"
+              target="_blank">More Details</Details></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 options-items col-md-6 str">
+          <div class="item">
+            <a href="#"><img th:src="@{/images/rooftop-04.jpg}" alt=""></a>
+            <span class="category">Luxury Rooftop</span>
+            <h6>+200.000 COP</h6>
+            <h4><a href="#">Trendi,Cra. 7 #34 - 74</a></h4>
+            <ul>
+              <li>Qualification: <span>4.7 Stars</span></li>
+              <li>Payment method: <span>Cash-Credit-Debit Card</span></li>
+              <li>Reservation: <span>Recommended</span></li>
+              <li>Atmosphere/style: <span>Contemporary</span></li>
+              <li>Parking: <span>Not Available</span></li>
+            </ul>
+            <div class="main-button">
+              <a href="https://www.bevoila.com/home-es/"
+              target="_blank">More Details</Details></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 options-items col-md-6 rac str">
+          <div class="item">
+            <a href="#"><img th:src="@{/images/rooftop-05.jpg}" alt=""></a>
+            <span class="category">Modern Rooftop</span>
+            <h6>+156.250 COP</h6>
+            <h4><a href="#">Buena Vida,Cl. El Porvenir</a></h4>
+            <ul>
+              <li>Qualification: <span>4.7 Stars</span></li>
+              <li>Payment method: <span>Cash-Credit Card</span></li>
+              <li>Reservation: <span>Recommended</span></li>
+              <li>Atmosphere/style: <span>Modern and tropical</span></li>
+              <li>Parking: <span>Not Available</span></li>
+            </ul>
+            <div class="main-button">
+              <a href="https://www.buenavidamarisqueria.com/"
+              target="_blank">More Details</Details></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 options-items col-md-6 rac adv">
+          <div class="item">
+            <a href="#"><img th:src="@{/images/rooftop-06.jpg}" alt=""></a>
+            <span class="category">Modern Rooftop</span>
+            <h6>+122.000 COP</h6>
+            <h4><a href="#">Henrys,Cl. 30 #17 - 140</a></h4>
+            <ul>
+                <li>Qualification: <span>4.5 Stars</span></li>
+                <li>Payment method: <span>Cash-Credit-Debit Card</span></li>
+                <li>Reservation: <span>Recommended</span></li>
+                <li>Atmosphere/style: <span>Modern and Relaxed</span></li>
+                <li>Parking: <span>Available</span></li>
+            </ul>
+            <div class="main-button">
+              <a href="https://henrys.com.co/"
+              target="_blank">More Details</Details></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 options-items col-md-6 rac str">
+          <div class="item">
+            <a href="#"><img th:src="@{/images/rooftop-07.jpg}" alt=""></a>
+            <span class="category"> Modern Rooftop</span>
+            <h6>+150.000 COP</h6>
+            <h4><a href="#">Casa Historica,Cra. 7 #34 - 31</a></h4>
+            <ul>
+              <li>Qualification: <span>4.1 Stars</span></li>
+              <li>Payment method: <span>Cash-Credit-Debit Card</span></li>
+              <li>Reservation: <span>Recommended</span></li>
+              <li>Atmosphere/style: <span>Contemporary</span></li>
+              <li>Parking: <span> Not Available</span></li>
+            </ul>
+            <div class="main-button">
+              <a href="https://www.apparta.co/lucena-rooftop/reservas/branch?branch_id=6802&utm_medium=instagram"
+              target="_blank">More Details</Details></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 options-items col-md-6 rac adv">
+          <div class="item">
+            <a href="#"><img th:src="@{images/rooftop-08.jpg}" alt=""></a>
+            <span class="category">Modern Rooftop</span>
+            <h6>+125.000 COP</h6>
+            <h4><a href="#">Mirador Culture, Cra. 7 #32-77</a></h4>
+            <ul>
+              <li>Qualification: <span>4.6 Stars</span></li>
+              <li>Payment method: <span>Cash-Credit-Debit Card</span></li>
+              <li>Reservation: <span>Recommended</span></li>
+              <li>Atmosphere/style: <span>Contemporary</span></li>
+              <li>Parking: <span>Not Available</span></li>
+            </ul>
+            <div class="main-button">
+              <a href="https://miradorgastrobar.com/"
+              target="_blank">More Details</Details></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 options-items col-md-6 rac adv">
+          <div class="item">
+            <a href="#"><img th:src="@{/images/rooftop-09.jpg}" alt=""></a>
+            <span class="category">Modern Rooftop</span>
+            <h6>+174.000 COP</h6>
+            <h4><a href="#">Ajeno, Calle 31, Cl. de la Magdalena</a></h4>
+            <ul>
+              <li>Qualification: <span>4.8 Stars</span></li>
+              <li>Payment method: <span>Cash-Credit-Debit Card</span></li>
+              <li>Reservation: <span>Recommended</span></li>
+              <li>Atmosphere/style: <span>Contemporary</span></li>
+              <li>Parking: <span>Not Available</span></li>
+            </ul>
+            <div class="main-button">
+              <a href="https://ajenorooftop.com/"
+              target="_blank">More Details</Details></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <ul class="pagination">
+            <li><a href="#">1</a></li>
+            <li><a class="is_active" href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">>></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="col-lg-12">
+        <p>Copyright © 2025 TravelNest., Ltd. All rights reserved.   
+      </div>
+    </div>
+  </footer>
+
+  <script th:src="@{/js/jquery.min.js}"></script>
+  <script th:src="@{/js/bootstrap.min.js}"></script>
+  <script th:src="@{/js/darkmode.js}"></script>
+
+  </body>
+</html>
