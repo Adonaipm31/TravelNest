@@ -10,10 +10,6 @@ public class publicControllers {
 	private String login() {
 		return "login";
 	}
-	@GetMapping("/signup")
-	private String sign() {
-		return "signup";
-	}
 	
 	@GetMapping("/restaurant")
 	private String restaurant() {
