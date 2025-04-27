@@ -29,7 +29,15 @@ public class UsuarioService {
         // Encriptar la contraseña
         usuario.setPassword(passwordEncoder.encode(dto.getPassword()));
         usuario.setPais(dto.getPais());
+        
+        if (usuarioRepository.findByCorreo(dto.getCorreo()).isPresent()) {
+            throw new IllegalArgumentException("El correo ya está registrado");
+        }
 
         return usuarioRepository.save(usuario);
     }
+    
+    public boolean existeUsuarioCorreo(String correo) {
+		return usuarioRepository.findByCorreo(correo).isPresent();
+	}
 }
