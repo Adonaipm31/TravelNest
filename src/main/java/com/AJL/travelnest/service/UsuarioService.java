@@ -21,20 +21,29 @@ public class UsuarioService {
     }
 
     public Usuario registrarUsuario(UsuarioDto dto) {
-        Usuario usuario = new Usuario();
-        usuario.setNombre(dto.getNombre());
-        usuario.setApellido(dto.getApellido());
-        usuario.setCorreo(dto.getCorreo());
+    	try {
+			Usuario usuario = new Usuario();
+			usuario.setNombre(dto.getNombre());
+			usuario.setApellido(dto.getApellido());
+			usuario.setCorreo(dto.getCorreo());
+			usuario.setRol(dto.getRol());
 
-        // Encriptar la contraseña
-        usuario.setPassword(passwordEncoder.encode(dto.getPassword()));
-        usuario.setPais(dto.getPais());
-        
-        if (usuarioRepository.findByCorreo(dto.getCorreo()).isPresent()) {
-            throw new IllegalArgumentException("El correo ya está registrado");
-        }
+			// Encriptar la contraseña
+			usuario.setPassword(passwordEncoder.encode(dto.getPassword()));
+			usuario.setPais(dto.getPais());
 
-        return usuarioRepository.save(usuario);
+			if (usuarioRepository.findByCorreo(dto.getCorreo()).isPresent()) {
+				throw new IllegalArgumentException("El correo ya está registrado");
+			}
+
+			return usuarioRepository.save(usuario);
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.print(e);
+		}
+
+		return null;
     }
     
     public boolean existeUsuarioCorreo(String correo) {

@@ -9,13 +9,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Usuario {
 
 	@Id 	
-	String id;
-	String nombre;
-	String apellido;
-	String correo;
-	String password;
-	String rol;
-	String pais;
+	private String id;
+	private String nombre;
+	private String apellido;
+	private String correo;
+	private String password;
+	private String rol;
+	private String pais;
 		
 	public Usuario() {
 		super();

@@ -1,5 +1,6 @@
 package com.AJL.travelnest.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,17 +13,19 @@ import com.AJL.travelnest.service.UsuarioService;
 import jakarta.validation.Valid;
 
 @Controller
-public class AuthRestController {
+public class AuthController {
 	
 	private final UsuarioService usuarioService;
 
-    public AuthRestController(UsuarioService usuarioService) {
+	@Autowired
+    public AuthController(UsuarioService usuarioService) {
         this.usuarioService = usuarioService;
     }
 
     @GetMapping("/signup")
     public String mostrarFormularioRegistro(Model model) {
-        model.addAttribute("usuarioDto", new UsuarioDto());
+    	UsuarioDto usuarioDto = new UsuarioDto();
+        model.addAttribute(usuarioDto);
         return "signup";
     }
 
@@ -41,7 +44,8 @@ public class AuthRestController {
         }
 
         usuarioService.registrarUsuario(dto);
-        return "redirect:/login?registroExitoso";
+        model.addAttribute("usuarioDto", new UsuarioDto());
+        return "redirect:/login";
     }
 	
 }

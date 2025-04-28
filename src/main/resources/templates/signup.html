@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es"
+xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,21 +9,25 @@
 </head>
 <body>
   <div class="form-container">
-    <p class="title">Login</p>
-    <form class="form">
+    <p class="title">Sign up</p>
+      <form method="POST" th:object="${usuarioDto}" th:action="@{/signup}">
+      <input type="hidden" th:name="${_csrf.parameterName}" value="${_csrf.token}">
       <div class="input-group">
-        <label for="name">Name</label>
-        <input placeholder="" id="username" name="username" type="text" />
+        <label>Name</label>
+        <input type="text" required th:field="*{nombre}">
       </div>
       <div class="input-group">
-        <label for="phone">Phone</label>
-        <input placeholder="" id="phone" name="phone" type="phone" />
-        <label for="email">Email</label>
-        <input placeholder="" id="email" name="email" type="email" />
-        <label for="location">Location</label>
-        <input placeholder="" type="email" />
+        <label>LastName</label>
+        <input placeholder="" type="text" th:field="*{apellido}" />
+        <label >Email</label>
+        <input placeholder="" th:field="*{correo}" required/>
+        <p th:if="${#fields.hasErrors('correo')}" th:errorclass="error" th:errors=*{correo}></p>
+        <label for="password">Password</label>
+        <input placeholder="" type="password" th:field="*{password}" />
+        <label>Country</label>
+        <input placeholder="" type="text" th:field="*{pais}" />
       </div>
-      <button style="margin-top:6%;" class="sign">Submit</button>
+      <button style="margin-top:6%;" class="sign" type="submit">Submit</button>
     </form>
     <div class="social-message">
       <div class="line"></div>
