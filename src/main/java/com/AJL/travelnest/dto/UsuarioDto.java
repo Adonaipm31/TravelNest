@@ -18,7 +18,7 @@ public class UsuarioDto {
     @Size(min = 6, message = "La contraseña debe tener al menos 6 caracteres")
     String password;
     
-    String rol;
+    String rol = "USER";
     String pais;
     
 	public UsuarioDto() {

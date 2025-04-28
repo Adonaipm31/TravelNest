@@ -14,23 +14,8 @@ services:
     networks:
       - backendTravel
 
-  mongodb-relational-migrator:
-    image: public.ecr.aws/v4d7k6c9/relational-migrator:latest
-    container_name: mongodb-relational-migrator
-    ports:
-      - 8080:8080
-    depends_on:
-      - mongodb
-    networks:
-      - backendTravel
-    volumes:
-      - migrator_data:/root/Migrator
-    environment:
-      - MIGRATOR_PATH_DATA=/root/Migrator
-
 volumes:
   data: {}
-  migrator_data: {}
 
 networks:
   backendTravel:

@@ -12,6 +12,5 @@ import com.AJL.travelnest.entity.Usuario;
 public interface UsuarioRepository extends MongoRepository<Usuario, String>{
 
 	List<Usuario> findByNombre(String nombre);
-	Optional<Usuario> findByCorreo(String correo);
-	
+	Optional<Usuario> findByCorreo(String correo);	
 }
