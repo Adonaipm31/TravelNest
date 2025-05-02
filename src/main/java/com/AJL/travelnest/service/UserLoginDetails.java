@@ -23,19 +23,13 @@ public class UserLoginDetails implements UserDetailsService{
 	
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-		Optional<Usuario> usuarioVerifi = repo.findByCorreo(email);
-		
-		if (usuarioVerifi.isPresent()) {
-			Usuario usuarioResponse = usuarioVerifi.get(); 
-			
-			var springUser = User.withUsername(usuarioResponse.getCorreo())
-				.password(usuarioResponse.getPassword())
-				.roles(usuarioResponse.getRol())
-				.build();
-			
-			return springUser;
-		}
-		return null;
+	    return repo.findByCorreo(email)
+	            .map(usuario -> User.withUsername(usuario.getCorreo())
+	                                .password(usuario.getPassword())
+	                                .roles(usuario.getRol())
+	                                .build())
+	            .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado con correo: " + email));
 	}
+
 
 }
