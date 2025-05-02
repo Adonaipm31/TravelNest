@@ -28,7 +28,7 @@ public class UserLoginDetails implements UserDetailsService{
 		if (usuarioVerifi.isPresent()) {
 			Usuario usuarioResponse = usuarioVerifi.get(); 
 			
-			var springUser = User.withUsername(usuarioResponse.getNombre())
+			var springUser = User.withUsername(usuarioResponse.getCorreo())
 				.password(usuarioResponse.getPassword())
 				.roles(usuarioResponse.getRol())
 				.build();

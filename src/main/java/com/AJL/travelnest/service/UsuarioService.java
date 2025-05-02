@@ -26,7 +26,7 @@ public class UsuarioService {
 			usuario.setNombre(dto.getNombre());
 			usuario.setApellido(dto.getApellido());
 			usuario.setCorreo(dto.getCorreo());
-			usuario.setRol(dto.getRol());
+			usuario.setRol("USER");
 
 			// Encriptar la contraseña
 			usuario.setPassword(passwordEncoder.encode(dto.getPassword()));

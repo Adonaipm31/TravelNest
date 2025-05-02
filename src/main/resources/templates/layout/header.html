@@ -44,7 +44,7 @@
                       <li><a th:href="@{/rooftop}" class="">Rooftop</a></li>
                       <li><a th:href="@{/bars}" class="">Bars</a></li>
                       <li><a th:href="@{/contact}">Contact Us</a></li>
-                      <li><a href="#"><i class="fa fa-calendar"></i>Events calendar</a></li>
+                      <li sec:authorize="isAuthenticated()" ><a href="#"><i class="fa fa-calendar"></i>Events calendar</a></li>
                     
                     </ul>   
                     <a class='menu-trigger'>
