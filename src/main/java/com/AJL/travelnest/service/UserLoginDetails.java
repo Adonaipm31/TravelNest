@@ -1,14 +1,11 @@
 package com.AJL.travelnest.service;
 
-import java.util.Optional;
-
 import org.springframework.security.core.userdetails.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import com.AJL.travelnest.entity.Usuario;
 import com.AJL.travelnest.repository.UsuarioRepository;
 
 @Service
