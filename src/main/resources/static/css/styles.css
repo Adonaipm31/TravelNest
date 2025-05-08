@@ -321,27 +321,36 @@ Header Style
 }
 
 .sub-header ul.social-links {
-  text-align: right;
+  display: flex;
+  align-items: center; 
+  justify-content: flex-end;
+  gap: 8px; 
 }
 
 .sub-header ul.social-links li {
-  margin-left: 8px;
+  display: flex;
+  align-items: center; 
 }
 
-.sub-header ul.social-links li a {
-  display: inline-block;
+.sub-header ul.social-links li a,
+.sub-header ul.social-links li label {
+  display: inline-flex; 
+  align-items: center;
+  justify-content: center;
   width: 30px;
   height: 30px;
   background-color: #cdcdcd;
   border-radius: 50%;
   text-align: center;
-  line-height: 30px;
   color: #fff;
   font-size: 14px;
-  transition: all .3s;
+  transition: all 0.3s ease;
+  line-height: 1; 
+  cursor: pointer;
 }
 
-.sub-header ul.social-links li a:hover {
+.sub-header ul.social-links li a:hover,
+.sub-header ul.social-links li label:hover {
   background-color: #f35525;
 }
 
