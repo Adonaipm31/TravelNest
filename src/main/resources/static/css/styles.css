@@ -1353,3 +1353,36 @@ body {
     margin-right: 100px;
   }
 }
+
+.comment-section {
+  background-color: #f9f9f9;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+.comment-section h4 {
+  margin-bottom: 20px;
+}
+
+.btn-orange {
+  background-color: #f35525;
+  border: none;
+  color: white;
+}
+
+.btn-orange:hover {
+  background-color: #f35525;
+}
+
+.btn-black {
+  background-color: black;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-black:hover {
+  background-color: #333;
+  color: white; /* <-- Esto asegura que el texto siga siendo blanco */
+}
+
