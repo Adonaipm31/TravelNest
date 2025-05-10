@@ -34,4 +34,9 @@ public class publicControllers {
 	private String contact() {
 		return "contact";
 	}
+	
+	@GetMapping({"","/"," "})
+	private String home() {
+		return "index.html";
+	}
 }

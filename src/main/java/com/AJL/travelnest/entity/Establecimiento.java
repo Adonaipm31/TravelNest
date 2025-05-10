@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import com.AJL.travelnest.dto.TipoServicio;
 
 @Document(collection = "servicios")
-public class Servicio {
+public class Establecimiento {
 	 @Id
 	 private String id;
 	 private CaracteristicaServicio caracteristicas;
@@ -18,11 +18,11 @@ public class Servicio {
 	 private List<MenuItemP> menuPrincipal;
 	 
 	 
-	public Servicio() {
+	public Establecimiento() {
 		super();
 	}
 
-	public Servicio(String id, CaracteristicaServicio caracteristicas, TipoServicio tipo, List<String> tipoAmbiente,
+	public Establecimiento(String id, CaracteristicaServicio caracteristicas, TipoServicio tipo, List<String> tipoAmbiente,
 			List<HorarioAtencion> horarioAtencion, List<MenuItemP> menuPrincipal) {
 		super();
 		this.id = id;

@@ -14,37 +14,37 @@ import com.AJL.travelnest.dto.TipoServicio;
 import com.AJL.travelnest.entity.CaracteristicaServicio;
 import com.AJL.travelnest.entity.HorarioAtencion;
 import com.AJL.travelnest.entity.MenuItemP;
-import com.AJL.travelnest.entity.Servicio;
-import com.AJL.travelnest.repository.ServicioRepository;
+import com.AJL.travelnest.entity.Establecimiento;
+import com.AJL.travelnest.repository.EstablecimientoRepository;
 
 @Service
-public class ServicioService {
-	 private final ServicioRepository servicioRepository;
+public class EstablecimientoService {
+	 private final EstablecimientoRepository servicioRepository;
 
 	    @Autowired
-	    public ServicioService(ServicioRepository servicioRepository) {
+	    public EstablecimientoService(EstablecimientoRepository servicioRepository) {
 	        this.servicioRepository = servicioRepository;
 	    }
 
-	    public List<Servicio> obtenerHoteles() {
+	    public List<Establecimiento> obtenerHoteles() {
 	        return servicioRepository.findByTipo(TipoServicio.HOTEL);
 	    }
 	    
-	    public List<Servicio> obtenerBares() {
+	    public List<Establecimiento> obtenerBares() {
 	        return servicioRepository.findByTipo(TipoServicio.BAR);
 	    }
 	    
-	    public List<Servicio> obtenerRestaurante() {
+	    public List<Establecimiento> obtenerRestaurante() {
 	        return servicioRepository.findByTipo(TipoServicio.RESTAURANTE);
 	    }
 
-	    public Servicio registrarServicio(ServicioDto servicioDTO) {
+	    public Establecimiento registrarServicio(ServicioDto servicioDTO) {
 
-	        Servicio servicio = mapearDTOaEntidad(servicioDTO);
+	        Establecimiento servicio = mapearDTOaEntidad(servicioDTO);
 	        return servicioRepository.save(servicio);
 	    }
 	    
-	    public List<Servicio> obtenerTodo() {
+	    public List<Establecimiento> obtenerTodo() {
 	        return servicioRepository.findAll();
 	    }
 	    
@@ -78,8 +78,8 @@ public class ServicioService {
 			            .collect(Collectors.toList());
 		}
 
-	    private Servicio mapearDTOaEntidad(ServicioDto dto) {
-	        Servicio servicio = new Servicio();
+	    private Establecimiento mapearDTOaEntidad(ServicioDto dto) {
+	        Establecimiento servicio = new Establecimiento();
 
 	        CaracteristicaServicio caracteristicas = new CaracteristicaServicio();
 	        caracteristicas.setNombre(dto.getCaracteristicas().getNombre());
