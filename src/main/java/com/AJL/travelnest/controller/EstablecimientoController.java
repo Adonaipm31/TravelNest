@@ -19,12 +19,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping("/servicios")
-public class ServicioRestController {
+public class EstablecimientoController {
 	
 	private final ServicioService service;
 
 	@Autowired
-	public ServicioRestController(ServicioService service) {
+	public EstablecimientoController(ServicioService service) {
 		this.service = service;
 	}
 	

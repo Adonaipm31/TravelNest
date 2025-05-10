@@ -1,6 +1,7 @@
 package com.AJL.travelnest.service;
 
-import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -20,13 +21,18 @@ public class UserLoginDetails implements UserDetailsService{
 	
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-	    return repo.findByCorreo(email)
-	            .map(usuario -> User.withUsername(usuario.getCorreo())
-	                                .password(usuario.getPassword())
-	                                .roles(usuario.getRol())
-	                                .build())
-	            .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado con correo: " + email));
-	}
+        return repo.findByCorreo(email)
+            .map(usuario -> new UsuarioDetails(
+                    usuario.getCorreo(), 
+                    usuario.getPassword(), 
+                    List.of(new SimpleGrantedAuthority("ROLE_" + usuario.getRol())),
+                    usuario.getNombre(),
+                    usuario.getApellido(),
+                    usuario.getCorreo(),
+                    usuario.getPais()
+            ))
+            .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado con correo: " + email));
+    }
 
 
 }
