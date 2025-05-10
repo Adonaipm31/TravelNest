@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.AJL.travelnest.dto.ServicioDto;
 import com.AJL.travelnest.dto.TipoServicio;
-import com.AJL.travelnest.service.ServicioService;
+import com.AJL.travelnest.service.EstablecimientoService;
 
 import jakarta.validation.Valid;
 
@@ -21,10 +21,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RequestMapping("/servicios")
 public class EstablecimientoController {
 	
-	private final ServicioService service;
+	private final EstablecimientoService service;
 
 	@Autowired
-	public EstablecimientoController(ServicioService service) {
+	public EstablecimientoController(EstablecimientoService service) {
 		this.service = service;
 	}
 	
