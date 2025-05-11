@@ -1386,3 +1386,43 @@ body {
   color: white; /* <-- Esto asegura que el texto siga siendo blanco */
 }
 
+.toggle-container {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-circle {
+  font-size: 18px;
+  padding: 4px;
+}
+
+.dropdown .btn {
+  background-color: transparent;
+  border: none;
+  color: #000000;
+  font-size: 20px;
+}
+
+.dropdown .btn:hover {
+  color: #f35525;
+}
+
+.social-links li {
+  margin-right: 12px;
+}
+
+.user-button {
+  font-size: 14px;
+  padding: 4px 8px;
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+}
+
+.user-button i {
+  font-size: 16px;
+}
+
+.user-dropdown {
+  margin-left: 20px;
+}

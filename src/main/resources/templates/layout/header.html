@@ -1,68 +1,71 @@
- <div class="sub-header" th:fragment="subHeader" >
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-8">
-          <ul class="info">
-            <li><i class="fa fa-envelope"></i> travelnest@gmail.com</li>
-            <li><i class="fa fa-map"></i> Cartagena de indias, FL 130001</li>
-          </ul>
-        </div>
-        <div class="col-lg-4 col-md-4">
-          <ul class="social-links">
-            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/signup">Sign up</a></li>   
-            <li>
-              <input type="checkbox" id="darkModeToggle" class="d-none">
-              <label for="darkModeToggle" class="toggle-container">
-                  <div class="toggle-circle">☀️</div>
-              </label>
+<div class="sub-header" th:fragment="subHeader">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-8">
+        <ul class="info">
+          <li><i class="fa fa-envelope"></i> travelnest@gmail.com</li>
+          <li><i class="fa fa-map"></i> Cartagena de indias, FL 130001</li>
+        </ul>
+      </div>
+      <div class="col-lg-4 col-md-4 d-flex justify-content-end align-items-center">
+        <ul class="social-links me-3">
+          <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+          <li><a href="/login">Login</a></li>
+          <li><a href="/signup">Sign up</a></li>   
+          <li>
+            <input type="checkbox" id="darkModeToggle" class="d-none">
+            <label for="darkModeToggle" class="toggle-container">
+                <div class="toggle-circle">☀️</div>
+            </label>
           </li>
-          </ul>
-        </div>
+        </ul>
+
+        <!-- Ícono de usuario con dropdown FUNCIONAL -->
+<div th:if="${usuarioLogueado != null}" class="dropdown user-dropdown ms-3">
+  <button class="btn user-button dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <i class="fa fa-user"></i>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Correo: <span th:text="${usuarioLogueado.correo}"></span></a></li>
+    <li><a class="dropdown-item" href="#">País: <span th:text="${usuarioLogueado.pais}"></span></a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="/logout">Cerrar sesión</a></li>
+  </ul>
+</div>
+
       </div>
     </div>
   </div>
+</div>
 
 <header th:fragment="header" class="header-area header-sticky">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <nav class="main-nav">
-                  
-                    <a th:href="@{/}" class="logo">
-                        <h1>Cartagena</h1>
-                    </a>
-                  
-                    <ul class="nav">
-                     <li><a th:href="@{/}">Home</a></li>
-                      <li><a th:href="@{/hotel}" class="">Hotels</a></li>
-                      <li><a th:href="@{/restaurant}" class="">Restaurants</a></li>
-                      <li><a th:href="@{/rooftop}" class="">Rooftop</a></li>
-                      <li><a th:href="@{/bars}" class="">Bars</a></li>
-                      <li><a th:href="@{/contact}">Contact Us</a></li>
-                      <li sec:authorize="isAuthenticated()" ><a href="#"><i class="fa fa-calendar"></i>Events calendar</a></li>
-                    
-                    </ul>   
-                    <a class='menu-trigger'>
-                        <span>Menu</span>
-                    </a>
-                   <div th:if="${usuarioLogueado != null}" class="dropdown" >
-					  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-					    <span th:text="${usuarioLogueado.nombre}">Usuario</span>
-					  </button>
-					  <ul class="dropdown-menu">
-					    <li><a class="dropdown-item" href="#">Correo: <span th:text="${usuarioLogueado.correo}"></span></a></li>
-					    <li><a class="dropdown-item" href="#">Pais: <span th:text="${usuarioLogueado.pais}"></span></a></li>
-					    <li><hr class="dropdown-divider"></li>
-					    <li><a class="dropdown-item" href="/logout">Cerrar sesión</a></li>
-					  </ul>
-					</div>  
-                </nav>
-            </div>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nav class="main-nav">
+          
+          <a th:href="@{/}" class="logo">
+            <h1>Cartagena</h1>
+          </a>
+          
+          <ul class="nav">
+            <li><a th:href="@{/}">Home</a></li>
+            <li><a th:href="@{/hotel}" class="">Hotels</a></li>
+            <li><a th:href="@{/restaurant}" class="">Restaurants</a></li>
+            <li><a th:href="@{/rooftop}" class="">Rooftop</a></li>
+            <li><a th:href="@{/bars}" class="">Bars</a></li>
+            <li><a th:href="@{/contact}">Contact Us</a></li>
+            <li sec:authorize="isAuthenticated()"><a href="#"><i class="fa fa-calendar"></i>Events calendar</a></li>
+          </ul>
+          
+          <a class="menu-trigger">
+            <span>Menu</span>
+          </a>
+        </nav>
+      </div>
     </div>
+  </div>
 </header>
