@@ -13,8 +13,8 @@
           <li><a href="#"><i class="fab fa-twitter"></i></a></li>
           <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
           <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-          <li><a href="/login">Login</a></li>
-          <li><a href="/signup">Sign up</a></li>   
+          <li sec:authorize="!isAuthenticated()"><a href="/login">Login</a></li>
+          <li sec:authorize="!isAuthenticated()"><a href="/signup">Sign up</a></li>   
           <li>
             <input type="checkbox" id="darkModeToggle" class="d-none">
             <label for="darkModeToggle" class="toggle-container">
@@ -32,7 +32,12 @@
     <li><a class="dropdown-item" href="#">Correo: <span th:text="${usuarioLogueado.correo}"></span></a></li>
     <li><a class="dropdown-item" href="#">País: <span th:text="${usuarioLogueado.pais}"></span></a></li>
     <li><hr class="dropdown-divider"></li>
-    <li><a class="dropdown-item" href="/logout">Cerrar sesión</a></li>
+    <li><a class="dropdown-item">
+		<form th:action="@{/logout}" method="post">
+		            	<button type="submit">Cerrar seccion</button>
+		            </form>
+				</a>
+		</li>
   </ul>
 </div>
 

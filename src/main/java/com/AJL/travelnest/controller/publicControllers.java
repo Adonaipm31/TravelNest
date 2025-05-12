@@ -35,7 +35,7 @@ public class publicControllers {
 		return "contact";
 	}
 	
-	@GetMapping({"","/"," "})
+	@GetMapping({"","/","/home"})
 	private String home() {
 		return "index.html";
 	}

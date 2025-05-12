@@ -47,7 +47,7 @@ public class SecurityConfig {
 				).formLogin(form -> form
 						.defaultSuccessUrl("/",true)
 						)
-				.logout(config -> config.logoutSuccessUrl("/logout"))
+				.logout(config -> config.logoutSuccessUrl("/home?logout"))
 				.build();
 	}
 
