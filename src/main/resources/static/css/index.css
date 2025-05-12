@@ -1,0 +1,254 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff; /* Blanco */
+    color: #333333; /* Negro */
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+    color: #ffffff; /* Blanco */
+}
+
+a {
+    color: #f35525; /* Naranja */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #f35525; /* Naranja más oscuro */
+}
+
+/* Navbar */
+header {
+    background-color: #000000; /* Fondo negro */
+}
+
+.navbar {
+    padding: 20px;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    color: #ffffff !important; /* TravelNest Cartagena en blanco */
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff !important; /* Todos los enlaces en blanco */
+    margin-right: 20px;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #f35525; /* Hover naranja */
+}
+
+/* Hero Section */
+.hero-section {
+    background: url('images/cartagena-hero.jpg') no-repeat center center/cover;
+    padding: 100px 0;
+    color: #ffffff; /* Blanco */
+    text-align: center;
+}
+
+.hero-section h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #ffffff; /* Blanco */
+}
+
+.hero-section p {
+    font-size: 20px;
+    color: #ffffff; /* Blanco */
+}
+
+.hero-section .btn {
+    background-color: #f35525; /* Naranja */
+    color: #ffffff; /* Blanco */
+}
+
+.hero-section .btn:hover {
+    background-color: #f35525; /* Naranja más oscuro */
+}
+
+/* Lugares Turísticos */
+.lugares-section {
+    padding: 60px 0;
+    background-color: #ffffff; /* Blanco */
+}
+
+.card {
+    border: none;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card-body {
+    background-color: #ffffff; /* Blanco */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.card-title {
+    font-size: 20px;
+    color: #333; /* Negro */
+}
+
+.card-text {
+    color: #666; /* Gris oscuro */
+    margin-bottom: 20px;
+}
+
+.card .btn {
+    background-color: #000000; /* Negro */
+    color: #ffffff; /* Blanco */
+    border: none;
+    border-radius: 5px;
+}
+
+.card .btn:hover {
+    background-color: #333333; /* Gris oscuro */
+}
+
+/* Restaurantes */
+.restaurantes-section {
+    padding: 60px 0;
+    background-color: #f9f9f9; /* Gris claro */
+}
+
+.restaurantes-section h2 {
+    font-size: 36px;
+    color: #333; /* Negro */
+    margin-bottom: 40px;
+}
+
+/* Eventos */
+.eventos-section {
+    padding: 60px 0;
+    background-color: #ffffff; /* Blanco */
+}
+
+.eventos-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.eventos-section ul li {
+    font-size: 18px;
+    color: #333; /* Negro */
+    margin-bottom: 15px;
+}
+
+/* Contacto */
+.contacto-section {
+    padding: 60px 0;
+    text-align: center;
+    background-color: #f9f9f9; /* Gris claro */
+}
+
+.contacto-section .btn {
+    background-color: #f35525; /* Naranja */
+    color: #ffffff; /* Blanco */
+    border-radius: 5px;
+}
+
+.contacto-section .btn:hover {
+    background-color: #f35525; /* Naranja más oscuro */
+}
+
+/* Footer */
+.footer {
+    background-color: #000000; /* Negro */
+    color: #ffffff; /* Blanco */
+    padding: 20px;
+    text-align: center;
+}
+
+.footer a {
+    color: #f35525; /* Naranja */
+}
+
+.footer a:hover {
+    color: #f35525; /* Naranja más oscuro */
+}
+
+/* Ajustes de los textos */
+.hero-section h1 {
+    color: #000000; /* Negro */
+}
+
+.hero-section p {
+    color: #000000; /* Negro */
+}
+
+/* Cambios en la navegación para que se vean en blanco */
+.navbar-nav .nav-link {
+    color: #ffffff; /* Blanco */
+}
+
+.navbar-nav .nav-link.active {
+    color: #f35525; /* Naranja */
+}
+
+/* Fondo blanco, texto negro */
+.eventos-section, .contacto-section {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 60px 0;
+}
+
+/* Títulos en negro */
+.eventos-section h2,
+.contacto-section h2 {
+  color: #000000;
+  font-weight: bold;
+}
+
+/* Lista de eventos con texto negro */
+.eventos-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.eventos-section li {
+  padding: 10px 0;
+  border-bottom: 1px solid #00000033;
+}
+
+/* Botón de contacto en naranja */
+.contacto-section .btn-primary {
+  background-color: #f35525;
+  border: none;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.contacto-section .btn-primary:hover {
+  background-color: #f35525;
+}
+
+footer.footer-no-gap {
+  margin-top: 0px;
+}
+
+footer {
+  margin-top: 150px;
+  background-color: #1e1e1e;
+  min-height: 100px;
+}
+
+footer p {
+  text-align: center;
+  line-height: 100px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+}
