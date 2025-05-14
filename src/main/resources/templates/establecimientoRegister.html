@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Resgistrar </title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="icon" type="image/png" th:href="@{/images/Logo-TravelNest.png}">
+</head>
+<body class="bg-light">
+
+    <div class="container mt-4 card">
+      <!-- Formulario de registro de establecimiento -->
+        <form th:action="@{/establecimientos/registrar}" method="post" class="card p-4 mb-4" th:object="${servicioDto}">
+            <h4>Registrar Establecimiento</h4>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" th:field="*{caracteristicas.nombre}" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="tipo">Tipo de servicio</label>
+                    <select id="tipo" name="tipo" class="form-select" th:field="*{tipo}" required>
+                        <option value="">Seleccione un tipo</option>
+                        <option th:each="tipo : ${tiposServicio}" th:value="${tipo.name()}" th:text="${tipo}"></option>
+                    </select>
+                </div>
+				<div class="mb-3">
+					<label for="direccion" class="form-label">Dirección</label>
+					<div class="input-group">
+						<input type="text" th:field="*{caracteristicas.direccion.calle}"
+							class="form-control" placeholder="Calle" required> <input
+							type="text" th:field="*{caracteristicas.direccion.numero}" class="form-control"
+							placeholder="N.º" required> <input type="text"
+							th:field="*{caracteristicas.direccion.barrio}" class="form-control"
+							placeholder="Barrio" required>
+					</div>
+				</div>
+				<div class="col-md-6 mb-3">
+                    <label for="tipoCocinaRaw">Tipos de Cocina (solo para Restaurantes)</label>
+                    <input type="text" id="tipoCocinaRaw" name="tipoCocinaRaw" class="form-control" 
+                           th:value="*{tipoCosina}" placeholder="Ejemplo: Mexicana, Italiana, China">
+                </div>
+                <div class="col-md-12 text-end">
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                </div>
+            </div>
+        </form>        
+    </div>
+</body>
+</html>
+

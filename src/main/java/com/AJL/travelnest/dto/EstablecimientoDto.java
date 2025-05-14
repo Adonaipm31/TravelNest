@@ -6,7 +6,7 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public class ServicioDto {
+public class EstablecimientoDto {
 
     @NotBlank(message = "El tipo es obligatorio")
     private TipoServicio tipo;
@@ -18,9 +18,8 @@ public class ServicioDto {
     @Valid
 	private List<HorarioDTO> horarioAtencion;
 	@Valid
-    private List<MenuItemDto> menuPrincipal;
+    private List<String> tipoCosina;
 
-    // Validación manual que puedes ejecutar en tu servicio 
     public void validarCamposCondicionales() {
         if (TipoServicio.BAR.equals(tipo)) {
             if (tipoAmbiente == null || tipoAmbiente.isEmpty()) {
@@ -29,21 +28,20 @@ public class ServicioDto {
         }
     }
     
-	public ServicioDto() {
+	public EstablecimientoDto() {
 		super();
 	}
 
-
-	public ServicioDto(@NotBlank(message = "El tipo es obligatorio") TipoServicio tipo,
+	public EstablecimientoDto(@NotBlank(message = "El tipo es obligatorio") TipoServicio tipo,
 			@NotNull(message = "Las características no pueden ser nulas") CaracteristicasDTO caracteristicas,
 			List<String> tipoAmbiente, @Valid List<HorarioDTO> horarioAtencion,
-			@Valid List<MenuItemDto> menuPrincipal) {
+			@Valid List<String> tipoCosina) {
 		super();
 		this.tipo = tipo;
 		this.caracteristicas = caracteristicas;
 		this.tipoAmbiente = tipoAmbiente;
 		this.horarioAtencion = horarioAtencion;
-		this.menuPrincipal = menuPrincipal;
+		this.tipoCosina = tipoCosina;
 	}
 
 	public TipoServicio getTipo() {
@@ -78,14 +76,12 @@ public class ServicioDto {
 		this.horarioAtencion = horarioAtencion;
 	}
 
-	public List<MenuItemDto> getMenuPrincipal() {
-		return menuPrincipal;
+	public List<String> getTipoCosina() {
+		return tipoCosina;
 	}
 
-	public void setMenuPrincipal(List<MenuItemDto> menuPrincipal) {
-		this.menuPrincipal = menuPrincipal;
+	public void setTipoCosina(List<String> tipoCosina) {
+		this.tipoCosina = tipoCosina;
 	}
 
-	
-	
 }
