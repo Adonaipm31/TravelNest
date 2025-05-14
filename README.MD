@@ -9,10 +9,10 @@ ____________________________________________________________
 2. Añadir tema oscuro ✔-----------------
 3. Darle funcion al boton de eventos (Añadir el calendario de eventos)
 4. Darle funcion a los botones de las clases ✔-----------------
-5. Clasificar los hoteles y restaurantes 
+5. Clasificar los hoteles y restaurantes ✔-----------------
 6. Añadir email.js para los correos
 7. Añadir un readme ✔---------------
-8. Añadir un dashboard
+8. Añadir un dashboard ✔-----------------
 9. Cambiarlo a Springsegurity ✔-----------------
 10. Realizar Login y Sign Up ✔-------------------
 11. Añadir Logo ✔-----------------
