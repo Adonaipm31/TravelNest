@@ -105,21 +105,8 @@
   <script th:src="@{/js/bootstrap.min.js}"></script>
   <script th:src="@{/js/owl.carousel.min.js}"></script>
   <script th:src="@{/js/darkmode.js}"></script>
-
-  <script>
-    $(document).ready(function () {
-      $('.owl-banner').owlCarousel({
-        items: 1,
-        loop: true,
-        autoplay: true,
-        autoplayTimeout: 4000,
-        autoplayHoverPause: true,
-        animateOut: 'fadeOut',
-        animateIn: 'fadeIn',
-        smartSpeed: 1000
-      });
-    });
-  </script>
+  <script th:src="@{/js/index.js}"></script>
+  
 </body>
 
 </html>
