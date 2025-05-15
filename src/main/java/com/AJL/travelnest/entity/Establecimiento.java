@@ -15,85 +15,69 @@ public class Establecimiento {
 	 private TipoServicio tipo;
 	 private List<String> tipoAmbiente;
 	 private List<HorarioAtencion> horarioAtencion;
-	 private List<MenuItemP> menuPrincipal;
-	 
-	 
+	 private List<String> tipoCosina;
+	 	 
 	public Establecimiento() {
 		super();
 	}
 
-	public Establecimiento(String id, CaracteristicaServicio caracteristicas, TipoServicio tipo, List<String> tipoAmbiente,
-			List<HorarioAtencion> horarioAtencion, List<MenuItemP> menuPrincipal) {
+	public Establecimiento(String id, CaracteristicaServicio caracteristicas, TipoServicio tipo,
+			List<String> tipoAmbiente, List<HorarioAtencion> horarioAtencion, List<String> menuPrincipal) {
 		super();
 		this.id = id;
 		this.caracteristicas = caracteristicas;
 		this.tipo = tipo;
 		this.tipoAmbiente = tipoAmbiente;
 		this.horarioAtencion = horarioAtencion;
-		this.menuPrincipal = menuPrincipal;
+		this.tipoCosina = menuPrincipal;
 	}
-
 
 	public String getId() {
 		return id;
 	}
 
-
 	public void setId(String id) {
 		this.id = id;
 	}
-
 
 	public CaracteristicaServicio getCaracteristicas() {
 		return caracteristicas;
 	}
 
-
 	public void setCaracteristicas(CaracteristicaServicio caracteristicas) {
 		this.caracteristicas = caracteristicas;
 	}
-
 
 	public TipoServicio getTipo() {
 		return tipo;
 	}
 
-
 	public void setTipo(TipoServicio tipo) {
 		this.tipo = tipo;
 	}
-
 
 	public List<String> getTipoAmbiente() {
 		return tipoAmbiente;
 	}
 
-
 	public void setTipoAmbiente(List<String> tipoAmbiente) {
 		this.tipoAmbiente = tipoAmbiente;
 	}
-
 
 	public List<HorarioAtencion> getHorarioAtencion() {
 		return horarioAtencion;
 	}
 
-
 	public void setHorarioAtencion(List<HorarioAtencion> horarioAtencion) {
 		this.horarioAtencion = horarioAtencion;
 	}
 
-
-	public List<MenuItemP> getMenuPrincipal() {
-		return menuPrincipal;
+	public List<String> getTipoCosina() {
+		return tipoCosina;
 	}
 
-
-	public void setMenuPrincipal(List<MenuItemP> menuPrincipal) {
-		this.menuPrincipal = menuPrincipal;
+	public void setTipoCosina(List<String> menuPrincipal) {
+		this.tipoCosina = menuPrincipal;
 	}
-
-
-
-	
+	 	
 }

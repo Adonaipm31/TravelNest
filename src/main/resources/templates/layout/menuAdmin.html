@@ -2,18 +2,13 @@
 	        <!-- TOP MENU -->
 	        <div class="top-menu">
 	            <div class="logo">
-	                <img src="./img/logo.svg" alt="">
+	                <img th:src="@{/images/Logo-TravelNest.png}" alt="">
 	                <span>TravelNest</span>
 	            </div>
 	            <div class="toggle">
 	                <i class='bx bx-menu'></i>
 	            </div>
-	        </div>
-	        <!-- INPUT SEARCH -->
-	        <div class="input-search">
-	            <i class='bx bx-search'></i>
-	            <input type="text" class="input" placeholder="Buscar">
-	        </div>
+	        </div>	        
 	        <!-- MENU -->
 	        <div class="menu">
 	            <div class="enlace">
@@ -23,12 +18,12 @@
 
 	            <div class="enlace">
 	                <i class="bx bx-user"></i>
-	                <span>Usuarios</span>
+	                <a href="/usuarios/listar"><span>Usuarios</span></a>
 	            </div>
 
 	            <div class="enlace">
 	                <i class="bx bx-grid-alt"></i>
-	                <span>Establecimientos</span>
+	                <a href="/establecimientos/listar"><span>Establecimientos</span></a>
 	            </div>
 
 	            <div class="enlace">

@@ -1,10 +1,13 @@
 package com.AJL.travelnest.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.AJL.travelnest.dto.UsuarioDto;
+import com.AJL.travelnest.entity.Establecimiento;
 import com.AJL.travelnest.entity.Usuario;
 import com.AJL.travelnest.repository.UsuarioRepository;
 
@@ -49,4 +52,8 @@ public class UsuarioService {
     public boolean existeUsuarioCorreo(String correo) {
 		return usuarioRepository.findByCorreo(correo).isPresent();
 	}
+    
+    public List<Usuario> listar(){
+    	return usuarioRepository.findAll();
+    }
 }

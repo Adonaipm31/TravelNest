@@ -1,10 +1,22 @@
 package com.AJL.travelnest.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import com.AJL.travelnest.service.EstablecimientoService;
 
 @Controller
 public class publicControllers {
+	
+    private final EstablecimientoService service;
+
+    @Autowired
+	public publicControllers(EstablecimientoService service) {
+		super();
+		this.service = service;
+	}
 
 	@GetMapping("/login")
 	private String login() {
@@ -17,9 +29,10 @@ public class publicControllers {
 	}
 	
 	@GetMapping("/hotel")
-	private String hotel() {
-		return "hotels";
-	}
+    public String hotel(Model model) {
+        model.addAttribute("servicios", service.obtenerHoteles());
+        return "hotels";
+    }
 
 	@GetMapping("/bars")
 	private String bars() {

@@ -844,10 +844,13 @@ Hotels Style
 */
 
 .hotels .item {
-  background-color: #eeeeee62;
+  background-color: rgb(255, 255, 255);
   border-radius: 10px;
   padding: 30px;
   margin-bottom: 30px;
+  box-shadow: 5px 14px 27px 6px rgba(217,206,206,0.34);
+-webkit-box-shadow: 5px 14px 27px 6px rgba(217,206,206,0.34);
+-moz-box-shadow: 5px 14px 27px 6px rgba(217,206,206,0.34);
 }
 
 .hotels .item img {
@@ -855,7 +858,7 @@ Hotels Style
 }
 
 .hotels .item span.category {
-  background-color: #fbd9cf;
+  background-color: #c9edff;
   font-weight: 500;
   border-radius: 5px;
   font-size: 14px;
@@ -894,7 +897,7 @@ Hotels Style
 
 .hotels .item h6 {
   font-size: 20px;
-  color: #f35525;
+  color: rgb(0, 0, 0);
   margin-top: 6px;
   display: inline-block;
   float: right;
