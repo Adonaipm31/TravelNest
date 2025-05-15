@@ -24,7 +24,8 @@ public class publicControllers {
 	}
 	
 	@GetMapping("/restaurant")
-	private String restaurant() {
+	private String restaurant(Model model) {
+		model.addAttribute("servicios", service.obtenerRestaurante());
 		return "Restaurants";
 	}
 	
