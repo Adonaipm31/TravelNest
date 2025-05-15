@@ -36,7 +36,8 @@ public class publicControllers {
     }
 
 	@GetMapping("/bars")
-	private String bars() {
+	private String bars(Model model) {
+		model.addAttribute("servicios", service.obtenerBares());
 		return "bars";
 	}
 	@GetMapping("/rooftop")
