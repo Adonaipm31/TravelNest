@@ -10,41 +10,94 @@
 
     <div class="container mt-4 card">
       <!-- Formulario de registro de establecimiento -->
-        <form th:action="@{/establecimientos/registrar}" method="post" class="card p-4 mb-4" th:object="${servicioDto}">
-            <h4>Registrar Establecimiento</h4>
-            <div class="row">
-                <div class="col-md-4 mb-3">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" th:field="*{caracteristicas.nombre}" required>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <label for="tipo">Tipo de servicio</label>
-                    <select id="tipo" name="tipo" class="form-select" th:field="*{tipo}" required>
-                        <option value="">Seleccione un tipo</option>
-                        <option th:each="tipo : ${tiposServicio}" th:value="${tipo.name()}" th:text="${tipo}"></option>
-                    </select>
-                </div>
-				<div class="mb-3">
-					<label for="direccion" class="form-label">Dirección</label>
-					<div class="input-group">
-						<input type="text" th:field="*{caracteristicas.direccion.calle}"
-							class="form-control" placeholder="Calle" required> <input
-							type="text" th:field="*{caracteristicas.direccion.numero}" class="form-control"
-							placeholder="N.º" required> <input type="text"
-							th:field="*{caracteristicas.direccion.barrio}" class="form-control"
-							placeholder="Barrio" required>
-					</div>
-				</div>
-				<div class="col-md-6 mb-3">
-                    <label for="tipoCocinaRaw">Tipos de Cocina (solo para Restaurantes)</label>
-                    <input type="text" id="tipoCocinaRaw" name="tipoCocinaRaw" class="form-control" 
-                           th:value="*{tipoCosina}" placeholder="Ejemplo: Mexicana, Italiana, China">
-                </div>
-                <div class="col-md-12 text-end">
-                    <button type="submit" class="btn btn-primary">Registrar</button>
-                </div>
+    <form th:action="@{/establecimientos/registrar}" method="post" class="card p-4 mb-4" th:object="${servicioDto}">
+    <h4>Registrar Establecimiento</h4>
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" id="nombre" th:field="*{caracteristicas.nombre}" required>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="tipo">Tipo de servicio</label>
+            <select id="tipo" name="tipo" class="form-select" th:field="*{tipo}" required>
+                <option value="">Seleccione un tipo</option>
+                <option th:each="tipo : ${tiposServicio}" th:value="${tipo.name()}" th:text="${tipo}"></option>
+            </select>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="nombre">Calificacion</label>
+            <input type="number" max="5" min="0" class="form-control" id="calificacion" th:field="*{caracteristicas.calificacion}" required>
+        </div>
+        <div class="mb-3">
+            <label for="direccion" class="form-label">Dirección</label>
+            <div class="input-group">
+                <input type="text" th:field="*{caracteristicas.direccion.calle}" class="form-control" placeholder="Calle" required>
+                <input type="text" th:field="*{caracteristicas.direccion.numero}" class="form-control" placeholder="N.º" required>
+                <input type="text" th:field="*{caracteristicas.direccion.barrio}" class="form-control" placeholder="Barrio" required>
             </div>
-        </form>        
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="tipoCocinaRaw">Tipos de Cocina (solo para Restaurantes)</label>
+            <input type="text" id="tipoCocinaRaw" name="tipoCocinaRaw" class="form-control" 
+                   th:value="*{tipoCosina}" placeholder="Ejemplo: Mexicana, Italiana, China">
+        </div>
+		<div class="col-md-4 mb-3">
+			<label for="precioPromedio">Precio Promedio</label> <input type="number" min="0" class="form-control"
+				id="precioPromedio" th:field="*{caracteristicas.precioPromedio}" required>
+		</div>
+		<div class="col-md-4 mb-3">
+            <label for="tipoAmbiente">Ambiente</label>
+            <input type="text" class="form-control" id="tipoAmbiente" th:field="*{tipoAmbiente}" required>
+        </div>
+		</div>
+
+    <!-- Horarios -->
+    <div class="mb-4">
+        <label>Horarios de atención</label>
+        <div id="horarios-container"></div>
+        <button type="button" class="btn btn-outline-secondary btn-sm mt-2" onclick="agregarHorario()">+ Agregar horario</button>
+    </div>
+
+    <div class="col-md-12 text-end">
+        <button type="submit" class="btn btn-primary">Registrar</button>
+    </div>
+
+    <!-- Template para clonar -->
+    <template id="horario-template">
+        <div class="row mb-2 horario-item">
+            <div class="col-md-3">
+                <select class="form-select" name="horarioAtencion[__index__].dia" required>
+                    <option value="">Día</option>
+                    <option value="LUNES">Lunes</option>
+                    <option value="MARTES">Martes</option>
+                    <option value="MIERCOLES">Miércoles</option>
+                    <option value="JUEVES">Jueves</option>
+                    <option value="VIERNES">Viernes</option>
+                    <option value="SABADO">Sábado</option>
+                    <option value="DOMINGO">Domingo</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <input type="time" class="form-control" name="horarioAtencion[__index__].horaApertura" required>
+            </div>
+            <div class="col-md-3">
+                <input type="time" class="form-control" name="horarioAtencion[__index__].horaCierre" required>
+            </div>
+            <div class="col-md-3">
+                <button type="button" class="btn btn-danger btn-sm" onclick="this.closest('.horario-item').remove()">Eliminar</button>
+            </div>
+        </div>
+    </template>
+
+    <script>
+        let index = 0;
+        function agregarHorario() {
+            const template = document.getElementById('horario-template').innerHTML;
+            const container = document.getElementById('horarios-container');
+            container.insertAdjacentHTML('beforeend', template.replace(/__index__/g, index++));
+        }
+    </script>
+	</form>        
     </div>
 </body>
 </html>

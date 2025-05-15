@@ -36,6 +36,10 @@ public class EstablecimientoService {
 	        return servicioRepository.findByTipo(TipoServicio.RESTAURANTE);
 	    }
 	    
+	    public List<Establecimiento> obtenerRooftop() {
+	        return servicioRepository.findByTipo(TipoServicio.ROOFTOP);
+	    }
+	    
 	    public List<Establecimiento> listar() {
 	        return servicioRepository.findAll();
 	    }
@@ -76,6 +80,8 @@ public class EstablecimientoService {
 	        caracteristicas.setTelefono(dto.getCaracteristicas().getTelefono());
 	        caracteristicas.setImage(dto.getCaracteristicas().getImage());
 	        caracteristicas.setDireccion(dto.getCaracteristicas().getDireccion());
+	        caracteristicas.setCalificacion(dto.getCaracteristicas().getCalificacion());
+	        caracteristicas.setPrecioPromedio(dto.getCaracteristicas().getPrecioPromedio());
 	        servicio.setTipo(dto.getTipo());
 	        servicio.setTipoAmbiente(dto.getTipoAmbiente());
 	        servicio.setHorarioAtencion(mapearHorarioAtencion(dto.getHorarioAtencion()));

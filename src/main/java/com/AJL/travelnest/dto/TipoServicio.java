@@ -5,7 +5,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 public enum TipoServicio {
 	BAR,
 	RESTAURANTE,
-	HOTEL;
+	HOTEL,
+	ROOFTOP;
 	
 	@JsonCreator
     public static TipoServicio fromString(String value) {

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Establecimientos</title>
+    <link rel="stylesheet" th:href="@{css/panelAdmin.css}">
+   	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/panelAdmin.css}">
+    <link rel="icon" type="image/png" th:href="@{/images/Logo-TravelNest.png}">
+    <script th:src="@{/js/panelAdmin.js}" defer></script>
+    
+    
+</head>
+<body>
+    <div class="row">
+        <div th:replace="layout/menuAdmin :: panelAdmin" class="col"></div>
+        
+        <div class="col p-2.5 m-3">
+            <h3 class="mt-4 mb-4 titulo">Establecimientos Registrados</h3>
+            <table class="table table-bordered table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Correo</th>
+                        <th>Rol</th>
+                        <th>Pais</th>
+                        <th>Opciones</th>                      
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="servicio : ${servicios}">
+                        <td th:text="${servicio.nombre}">Nombre</td>
+                        <td th:text="${servicio.apellido}">Apellido</td>                       
+                        <td th:text="${servicio.correo}">Correo</td>
+                        <td th:text="${servicio.rol}">Rol</td>
+                        <td th:text="${servicio.pais}">Pais</td>                                  
+                        <td>
+             	            <button type="button" class="btn btn-outline-info">Editar</button>
+                            <button type="button" class="btn btn-outline-danger">Eliminar</button>
+                        </td>                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+	
+	
+	

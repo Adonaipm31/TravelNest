@@ -1,5 +1,6 @@
 package com.AJL.travelnest.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,13 +16,10 @@ import java.util.List;
 public class EstablecimientoController {
 
     private final EstablecimientoService service;
-
+    
+    @Autowired
     public EstablecimientoController(EstablecimientoService establecimientoService) {
         this.service = establecimientoService;
-    }
-    @GetMapping("/")
-    public String verEstableimiento() {
-        return "establecimientos";
     }
     
     @GetMapping("/registrar")
@@ -29,7 +27,7 @@ public class EstablecimientoController {
         model.addAttribute("servicioDto", new EstablecimientoDto());
         model.addAttribute("tiposServicio", TipoServicio.values()); // Agrega esto
         model.addAttribute("servicios", service.listar());
-        return "establecimientosRegister";
+        return "establecimientoRegister";
     }
     @PostMapping("/registrar")
     public String registrarEstablecimiento(
@@ -45,7 +43,7 @@ public class EstablecimientoController {
         // Guardar el establecimiento
         service.registrarServicio(establecimientoDto);
 
-        return "redirect:/establecimientos"; 
+        return "redirect:/establecimientos/listar"; 
     }
     
     @GetMapping("/filtrar")
@@ -61,6 +59,9 @@ public class EstablecimientoController {
         case HOTEL:
             resultados = service.obtenerHoteles();
             break;
+        case ROOFTOP:
+            resultados = service.obtenerHoteles();
+            break;
         default:
             throw new IllegalArgumentException("Tipo de servicio no reconocido: " + tipo);
     }
@@ -71,6 +72,12 @@ public class EstablecimientoController {
 
     	return "redirect:/establecimientos";    
     	
+    }
+    
+    @GetMapping("/listar")
+    public String listarEstablecimientos(Model model) {
+        model.addAttribute("servicios", service.listar());
+        return "establecimientos";
     }
 
 }

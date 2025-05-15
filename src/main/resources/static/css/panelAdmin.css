@@ -79,6 +79,9 @@ body {
     display: flex;
     align-items: center;
 }
+.titulo{
+	color:var(--azul-opacidad);
+}
 
 .input-search i {
     font-size: 30px;
@@ -148,4 +151,7 @@ body {
 .menu-dashboard.open .menu .enlace span {
     opacity: 1;
 }
-
+a{
+	text-decoration:none;
+	color: var(--blanco);
+}
