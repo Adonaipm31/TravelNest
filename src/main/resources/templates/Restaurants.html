@@ -56,11 +56,11 @@ xmlns:th="http://www.thymeleaf.org">
       </ul>
       <div class="row options-box">
         <div class="col-lg-4 col-md-6 align-self-center mb-30 options-items col-md-6 adv"
-        th:each="servicio : ${servicios}>
+        th:each="servicio : ${servicios}">
           <div class="item">
             <a href="#"><img th:src="@{/images/restaurant-01.jpg}" alt=""></a>
             <span class="category" th:text="${servicio.tipoAmbiente}"></span>
-            <h6 th:text="${servicio..caracteristicas.precioPromedio}">+40.000 COP</h6>
+            <h6 th:text="${servicio.caracteristicas.precioPromedio}">+40.000 COP</h6>
             <h4 th:text="${servicio.caracteristicas.nombre}"><a href="#"></a></h4>
             <ul>
               <li>Qualification: <span th:text="${servicio.caracteristicas.calificacion}+ ' Stars'"></span></li>
