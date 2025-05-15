@@ -24,7 +24,8 @@ public class publicControllers {
 	}
 	
 	@GetMapping("/restaurant")
-	private String restaurant() {
+	private String restaurant(Model model) {
+		model.addAttribute("servicios", service.obtenerRestaurante());
 		return "Restaurants";
 	}
 	
@@ -35,7 +36,8 @@ public class publicControllers {
     }
 
 	@GetMapping("/bars")
-	private String bars() {
+	private String bars(Model model) {
+		model.addAttribute("servicios", service.obtenerBares());
 		return "bars";
 	}
 	@GetMapping("/rooftop")
