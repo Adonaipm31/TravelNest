@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
+
 import com.AJL.travelnest.dto.EstablecimientoDto;
 import com.AJL.travelnest.dto.TipoServicio;
 import com.AJL.travelnest.entity.Establecimiento;
@@ -25,7 +25,7 @@ public class EstablecimientoController {
     @GetMapping("/registrar")
     public String mostrarFormulario(Model model) {
         model.addAttribute("servicioDto", new EstablecimientoDto());
-        model.addAttribute("tiposServicio", TipoServicio.values()); // Agrega esto
+        model.addAttribute("tiposServicio", TipoServicio.values()); 
         model.addAttribute("servicios", service.listar());
         return "establecimientoRegister";
     }

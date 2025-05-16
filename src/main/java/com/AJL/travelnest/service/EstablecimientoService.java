@@ -91,5 +91,7 @@ public class EstablecimientoService {
 	        return servicio;
 	    }
 
-	   
+	    public List<Establecimiento> buscarPorNombre(String nombre) {
+	        return servicioRepository.findByCaracteristicasNombreContainingIgnoreCase(nombre);
+	    }
 }
