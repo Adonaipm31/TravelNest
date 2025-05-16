@@ -1,10 +1,3 @@
-https://uiverse.io/Pradeepsaranbishnoi/strong-treefrog-90
-https://uiverse.io/cbolson/slippery-treefrog-30
-https://uiverse.io/Yaya12085/short-panda-24 (Implementado)----------------------------
-https://uiverse.io/SmookyDev/tricky-husky-54 (Mejor opcion)
-https://uiverse.io/javierBarroso/great-cow-5 (Aplicaciones)
-https://uiverse.io/andrew-demchenk0/giant-termite-81 (Calendario)
-____________________________________________________________
 1. Cambiar los iconos de aplicaciones ✔-----------------
 2. Añadir tema oscuro ✔-----------------
 3. Darle funcion al boton de eventos (Añadir el calendario de eventos)
@@ -22,8 +15,17 @@ ____________________________________________________________
 15. Añadir Bares ✔-----------------
 16. Añadir la ubicacion de cada usuario para ofrecerle informacion en su idioma acerca de la pagina (Email.js)
 17. La Dashboard dar la funcion de que pais es cada usuario
-18. Añadir los comentarios, reseñas y calificaciones
+18. Añadir los comentarios, reseñas y calificaciones ✔----------------
 19. Arreglar link de Hotel Intercontinental ✔----------------
 20. Añadir algun ingreso u beneficio para nosotros por medio de un carrito y para crear su plan 
 21. Añadir formulario de como encontro la pagina el usuario si por medio de anuncios, amigos, publicidad etc
 22. Añadir metodo de recuperacion de contraseñas 
+23. https://uiverse.io/HetPatel69/nervous-treefrog-70 (Perfil)
+24. https://uiverse.io/vinodjangid07/wonderful-squid-57 (Descargar lista de eventos)
+25. https://uiverse.io/hannahyockel/young-termite-87 (Remover evento de la lista que realice el usuario)
+26. https://uiverse.io/boryanakrasteva/shy-treefrog-100 (Darle me gusta a los Restaurantes, hoteles etc)
+27. https://uiverse.io/gharsh11032000/funny-badger-91 (Apartado de recuperar contraseña junto al login)
+28. https://uiverse.io/SelfMadeSystem/selfish-starfish-40 (Calificaciones)
+29. https://uiverse.io/vinodjangid07/lazy-rattlesnake-93 (Cookies para sugerirle mas cosas al cliente)
+30. https://www.reactbits.dev/components/gooey-nav# (Animaciones para la barra de restaurantes, contactos etc)
+31. https://www.reactbits.dev/components/circular-gallery (Puede servir para el index)
