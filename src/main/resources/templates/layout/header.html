@@ -64,11 +64,6 @@
             <li><a th:href="@{/bars}" class="">Bars</a></li>
             <li><a th:href="@{/contact}">Contact Us</a></li>
             <li sec:authorize="isAuthenticated()"><a href="#"><i class="fa fa-calendar"></i>Events calendar</a></li>
-            <li class="nav-item cart-icon">
-            <a href="#" id="verCarrito">
-              <i class="fa fa-shopping-cart"></i> <span id="contadorCarrito">0</span>
-            </a>
-          </li>
           </ul>
           
           <a class="menu-trigger">
