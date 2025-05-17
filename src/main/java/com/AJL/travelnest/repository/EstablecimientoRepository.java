@@ -1,6 +1,7 @@
 package com.AJL.travelnest.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
@@ -13,4 +14,5 @@ public interface EstablecimientoRepository extends MongoRepository<Establecimien
 	
 	List<Establecimiento>findByTipo(TipoServicio tipo);
 	List<Establecimiento> findByCaracteristicasNombreContainingIgnoreCase(String nombre);
-	}
+
+}

@@ -50,7 +50,7 @@ public class publicControllers {
 		return "contact";
 	}
 	
-	@GetMapping({"","/","/home"})
+	@GetMapping({" ","/","/home"})
 	private String home() {
 		return "index.html";
 	}
