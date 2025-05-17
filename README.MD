@@ -21,7 +21,7 @@
 21. Añadir formulario de como encontro la pagina el usuario si por medio de anuncios, amigos, publicidad etc
 22. Añadir metodo de recuperacion de contraseñas 
 23. https://uiverse.io/HetPatel69/nervous-treefrog-70 (Perfil)
-24. https://uiverse.io/vinodjangid07/wonderful-squid-57 (Descargar lista de eventos)
+24. https://https://uiverse.io/HetPatel69/nervous-treefrog-70uiverse.io/vinodjangid07/wonderful-squid-57 (Descargar lista de eventos)
 25. https://uiverse.io/hannahyockel/young-termite-87 (Remover evento de la lista que realice el usuario)
 26. https://uiverse.io/boryanakrasteva/shy-treefrog-100 (Darle me gusta a los Restaurantes, hoteles etc)
 27. https://uiverse.io/gharsh11032000/funny-badger-91 (Apartado de recuperar contraseña junto al login)

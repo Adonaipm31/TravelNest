@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Resena </title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
     <link rel="icon" type="image/png" th:href="@{/images/Logo-TravelNest.png}">
 </head>
@@ -20,10 +21,27 @@
         <textarea th:field="*{comentario}" class="form-control" required></textarea>
     </div>
 
-    <div class="mb-3">
-        <label for="calificacion">Calificación</label>
-        <input type="number" min="0" max="5" th:field="*{calificacion}" class="form-control" required>
+<div class="mb-3">
+    <label for="calificacion">Calificación</label>
+    <div class="rating d-flex gap-2">
+        <th:block th:each="i : ${#numbers.sequence(5, 1)}">
+            <input type="radio"
+                   th:id="'star-' + ${i}"
+                   th:name="calificacion"
+                   th:value="${i}"
+                   th:field="*{calificacion}" required />
+            <label th:for="'star-' + ${i}">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 24 24"
+                     width="24" height="24">
+                    <path pathLength="360"
+                          d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2
+                             L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" />
+                </svg>
+            </label>
+        </th:block>
     </div>
+</div>
 
     <button type="submit" class="btn btn-primary">Enviar Reseña</button>
 </form>
