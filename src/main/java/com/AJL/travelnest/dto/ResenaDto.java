@@ -4,16 +4,18 @@ public class ResenaDto {
     private String comentario;
     private int calificacion;
     private String establecimientoId;  
+    private String usuarioId;
     
 	public ResenaDto() {
 		super();
 	}
 
-	public ResenaDto(String comentario, int calificacion, String establecimientoId) {
+	public ResenaDto(String comentario, int calificacion, String establecimientoId, String usuarioId) {
 		super();
 		this.comentario = comentario;
 		this.calificacion = calificacion;
 		this.establecimientoId = establecimientoId;
+		this.usuarioId = usuarioId;
 	}
 
 	public String getComentario() {
@@ -39,5 +41,12 @@ public class ResenaDto {
 	public void setEstablecimientoId(String establecimientoId) {
 		this.establecimientoId = establecimientoId;
 	}
-	
+
+	public String getUsuarioId() {
+		return usuarioId;
+	}
+
+	public void setUsuarioId(String usuarioId) {
+		this.usuarioId = usuarioId;
+	}		
 }

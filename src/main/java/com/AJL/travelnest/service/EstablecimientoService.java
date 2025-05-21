@@ -2,12 +2,14 @@ package com.AJL.travelnest.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.AJL.travelnest.dto.HorarioDTO;
+import com.AJL.travelnest.dto.CaracteristicasDTO;
 import com.AJL.travelnest.dto.EstablecimientoDto;
 import com.AJL.travelnest.dto.TipoServicio;
 import com.AJL.travelnest.entity.CaracteristicaServicio;
@@ -90,8 +92,88 @@ public class EstablecimientoService {
 
 	        return servicio;
 	    }
+	    
+	    private void actualizarEntidadDesdeDTO(Establecimiento entidad, EstablecimientoDto dto) {
+	        entidad.setTipo(dto.getTipo());
+	        entidad.setTipoAmbiente(dto.getTipoAmbiente());
+	        entidad.setTipoCosina(dto.getTipoCosina());
+	        entidad.setHorarioAtencion(mapearHorarioAtencion(dto.getHorarioAtencion()));
+
+	        CaracteristicaServicio caracteristicas = entidad.getCaracteristicas();
+	        if (dto.getCaracteristicas() == null) {
+	            caracteristicas = new CaracteristicaServicio();
+	            entidad.setCaracteristicas(caracteristicas);
+	        }
+
+	        caracteristicas.setNombre(dto.getCaracteristicas().getNombre());
+	        caracteristicas.setTelefono(dto.getCaracteristicas().getTelefono());
+	        caracteristicas.setImage(dto.getCaracteristicas().getImage());
+	        caracteristicas.setDireccion(dto.getCaracteristicas().getDireccion());
+	        caracteristicas.setCalificacion(dto.getCaracteristicas().getCalificacion());
+	        caracteristicas.setPrecioPromedio(dto.getCaracteristicas().getPrecioPromedio());
+	    }
+	    
+	    public EstablecimientoDto mapearEntidadADTO(Establecimiento entidad) {
+	        EstablecimientoDto dto = new EstablecimientoDto();
+	        
+	        dto.setTipo(entidad.getTipo());
+	        dto.setTipoAmbiente(entidad.getTipoAmbiente());
+	        dto.setTipoCosina(entidad.getTipoCosina());
+	        CaracteristicaServicio caracteristicas = entidad.getCaracteristicas();
+	        if (caracteristicas != null) {
+	            CaracteristicasDTO caracteristicaDto = new CaracteristicasDTO();
+	            caracteristicaDto.setNombre(caracteristicas.getNombre());
+	            caracteristicaDto.setTelefono(caracteristicas.getTelefono());
+	            caracteristicaDto.setImage(caracteristicas.getImage());
+	            caracteristicaDto.setDireccion(caracteristicas.getDireccion());
+	            caracteristicaDto.setCalificacion(caracteristicas.getCalificacion());
+	            caracteristicaDto.setPrecioPromedio(caracteristicas.getPrecioPromedio());
+	            dto.setCaracteristicas(caracteristicaDto);
+	        }
+	        
+	        if (entidad.getHorarioAtencion() != null) {
+	            List<HorarioDTO> listaHorarios = entidad.getHorarioAtencion().stream().map(horario -> {
+	                HorarioDTO horarioDTO = new HorarioDTO();
+	                horarioDTO.setDia(horario.getDia());
+	                horarioDTO.setHoraApertura(horario.getApertura());
+	                horarioDTO.setHoraCierre(horario.getCierre());
+	                return horarioDTO;
+	            }).collect(Collectors.toList());
+
+	            dto.setHorarioAtencion(listaHorarios);
+	        }
+
+	        return dto;
+	    }
+
 
 	    public List<Establecimiento> buscarPorNombre(String nombre) {
 	        return servicioRepository.findByCaracteristicasNombreContainingIgnoreCase(nombre);
 	    }
+	    
+	    public Optional<Establecimiento> buscarPorId(String id) {
+	        return servicioRepository.findById(id);
+	    }
+	    
+	    public Establecimiento obtenerPorId(String id) {
+	        return servicioRepository.findById(id)
+	            .orElse(null);
+	    }
+	    
+	    public Establecimiento actualizar(String id, EstablecimientoDto esta) {
+	    	Establecimiento establecimiento = servicioRepository.findById(id)
+	    			.orElseThrow(() -> new RuntimeException("Establecimiento no encontrado con ID: " + id));  	
+
+	        actualizarEntidadDesdeDTO(establecimiento, esta);	    		
+	    	return servicioRepository.save(establecimiento);
+			
+	    }
+	    
+	    public void eliminar(String id) {
+	    	Establecimiento establecimiento = servicioRepository.findById(id)
+	    			.orElseThrow(() -> new RuntimeException("Establecimiento no encontrado con ID: " + id));  	
+
+	    	servicioRepository.delete(establecimiento);
+	    }	    	
+	   
 }

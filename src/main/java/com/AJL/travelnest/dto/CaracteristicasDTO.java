@@ -1,9 +1,5 @@
 package com.AJL.travelnest.dto;
 
-import java.util.List;
-
-import com.AJL.travelnest.entity.Direccion;
-
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
