@@ -1,5 +1,7 @@
 package com.AJL.travelnest.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,7 +11,7 @@ import com.AJL.travelnest.dto.EstablecimientoDto;
 import com.AJL.travelnest.dto.TipoServicio;
 import com.AJL.travelnest.entity.Establecimiento;
 import com.AJL.travelnest.service.EstablecimientoService;
-import java.util.List;
+
 
 @Controller
 @RequestMapping("/establecimientos")
@@ -38,14 +40,11 @@ public class EstablecimientoController {
         if (establecimientoDto.getTipo() == TipoServicio.RESTAURANTE && tipoCocinaRaw != null) {
             List<String> tipos = List.of(tipoCocinaRaw.split(",\\s*"));
             establecimientoDto.setTipoCosina(tipos);
-        }
-
-        // Guardar el establecimiento
+        }          
         service.registrarServicio(establecimientoDto);
-
-        return "redirect:/establecimientos/listar"; 
+        return "redirect:/establecimientos/listar";
     }
-    
+
     @GetMapping("/filtrar")
     public String filtrarPorTipo(@RequestParam("tipo") TipoServicio tipo, Model model) {
         List<Establecimiento> resultados;  
@@ -70,7 +69,7 @@ public class EstablecimientoController {
     	model.addAttribute("tiposServicio", TipoServicio.values()); 
     	model.addAttribute("establecimientoDto", new EstablecimientoDto()); // Para mantener el formulario vacío
 
-    	return "redirect:/establecimientos";    
+    	return "redirect:/establecimientos/listar";    
     	
     }
     
@@ -79,5 +78,29 @@ public class EstablecimientoController {
         model.addAttribute("servicios", service.listar());
         return "establecimientos";
     }
+    
+    @GetMapping("/actualizar/{id}")
+    public String mostrarFormularioActualizar(@PathVariable String id, Model model) {
+        Establecimiento entidad = service.obtenerPorId(id);
+        EstablecimientoDto dto = service.mapearEntidadADTO(entidad);
 
+        model.addAttribute("servicioDto", dto);
+        model.addAttribute("id", id); 
+        return "establecimientoActualizar"; 
+    }
+    
+    @PostMapping("/actualizar/{id}")
+    public String procesarActualizacion(@PathVariable String id,
+                                        @ModelAttribute("servicioDto") EstablecimientoDto establecimientoDto) {
+        service.actualizar(id, establecimientoDto);
+        return "redirect:/establecimientos/listar?actualizado";
+    }
+    
+    @GetMapping("/eliminar/{id}")
+    public String eliminar(@PathVariable String id) {
+    	service.eliminar(id);
+    	return "redirect:/establecimientos/listar?eliminado";
+    }
 }
+
+ 

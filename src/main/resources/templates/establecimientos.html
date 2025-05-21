@@ -28,7 +28,7 @@ xmlns:th="http://www.thymeleaf.org">
                         <th>Tipo</th>
                         <th>Dirección</th>
                         <th>Ambiente</th>
-                        <th>Teléfono</th>
+                        <th>Foto</th>
                         <th th:colspan="1">Tipos de Cocina</th>
                         <th>Horarios</th>
                         <th>Opciones</th>                      
@@ -42,7 +42,7 @@ xmlns:th="http://www.thymeleaf.org">
                             <span th:text="${servicio.caracteristicas.direccion.calle} + ' ' + ${servicio.caracteristicas.direccion.numero} + ', ' + ${servicio.caracteristicas.direccion.barrio}">Dirección</span>
                         </td>
                         <td th:text="${servicio.tipoAmbiente}">Ambiente</td>
-                        <td th:text="${servicio.caracteristicas.telefono}">Teléfono</td>
+                      
                         
                         <!-- Tipos de Cocina (solo si es restaurante) -->
                         <td>
@@ -61,8 +61,10 @@ xmlns:th="http://www.thymeleaf.org">
                             </ul>
                         </td>
                         <td>
-             	            <button type="button" class="btn btn-outline-info">Editar</button>
-                            <button type="button" class="btn btn-outline-danger">Eliminar</button>
+             	            <a th:href="@{/establecimientos/actualizar/{id}(id=${servicio.id})}"
+								 class="btn btn-outline-info">Editar</a>
+                            <a th:href="@{/establecimientos/eliminar/{id}(id=${servicio.id})}"
+								 class="btn btn-outline-danger">Eliminar</a>
                         </td>                        
                     </tr>
                 </tbody>

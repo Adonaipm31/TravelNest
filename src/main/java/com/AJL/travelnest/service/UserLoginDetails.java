@@ -7,6 +7,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import com.AJL.travelnest.entity.Usuario;
 import com.AJL.travelnest.repository.UsuarioRepository;
 
 @Service
@@ -34,5 +36,8 @@ public class UserLoginDetails implements UserDetailsService{
             .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado con correo: " + email));
     }
 
-
+	public Usuario obtenerPorCorreo(String correo) {
+        return repo.findByCorreo(correo)
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+    }
 }

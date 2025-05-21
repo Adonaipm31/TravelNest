@@ -16,21 +16,26 @@ public class Resena {
     private int calificacion;
 
     @Field("establecimiento_id")
-    private ObjectId establecimientoId; 
+    private String establecimientoId; 
+    
+    @Field("usuario_id")
+    private String usuarioId;
 
     private LocalDate fecha;
 
-	public Resena() {
-		super();
-	}
-
-	public Resena(String id, String comentario, int calificacion, ObjectId establecimientoId, LocalDate fecha) {
+	public Resena(String id, String comentario, int calificacion, String establecimientoId, String usuarioId,
+			LocalDate fecha) {
 		super();
 		this.id = id;
 		this.comentario = comentario;
 		this.calificacion = calificacion;
 		this.establecimientoId = establecimientoId;
+		this.usuarioId = usuarioId;
 		this.fecha = fecha;
+	}
+
+	public Resena() {
+		super();
 	}
 
 	public String getId() {
@@ -57,12 +62,20 @@ public class Resena {
 		this.calificacion = calificacion;
 	}
 
-	public ObjectId getEstablecimientoId() {
+	public String getEstablecimientoId() {
 		return establecimientoId;
 	}
 
-	public void setEstablecimientoId(ObjectId establecimientoId) {
+	public void setEstablecimientoId(String establecimientoId) {
 		this.establecimientoId = establecimientoId;
+	}
+
+	public String getUsuarioId() {
+		return usuarioId;
+	}
+
+	public void setUsuarioId(String usuarioId) {
+		this.usuarioId = usuarioId;
 	}
 
 	public LocalDate getFecha() {
@@ -72,7 +85,5 @@ public class Resena {
 	public void setFecha(LocalDate fecha) {
 		this.fecha = fecha;
 	}
-
-	
 }
 

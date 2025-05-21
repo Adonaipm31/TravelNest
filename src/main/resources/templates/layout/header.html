@@ -24,7 +24,7 @@
         </ul>
 
         <!-- Ícono de usuario con dropdown FUNCIONAL -->
-<div th:if="${usuarioLogueado != null}" class="dropdown user-dropdown ms-3">
+<div sec:authorize="isAuthenticated()" class="dropdown user-dropdown ms-3">
   <button class="btn user-button dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
     <i class="fa fa-user"></i>
   </button>
@@ -74,8 +74,8 @@
             <li><a th:href="@{/}">Home</a></li>
             <li><a th:href="@{/hotel}" class="">Hotels</a></li>
             <li><a th:href="@{/restaurant}" class="">Restaurants</a></li>
-            <li><a th:href="@{/rooftop}" class="">Rooftop</a></li>
             <li><a th:href="@{/bars}" class="">Bars</a></li>
+            <li><a th:href="@{/resena/listar}" class="">Reviews</a></li>            
             <li><a th:href="@{/contact}">Contact Us</a></li>
             <li sec:authorize="isAuthenticated()"><a href="#"><i class="fa fa-calendar"></i>Events calendar</a></li>
           </ul>
