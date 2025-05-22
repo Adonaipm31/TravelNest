@@ -39,8 +39,11 @@ xmlns:th="http://www.thymeleaf.org">
                         <td th:text="${servicio.rol}">Rol</td>
                         <td th:text="${servicio.pais}">Pais</td>                                  
                         <td>
-             	            <button type="button" class="btn btn-outline-info">Editar</button>
-                            <button type="button" class="btn btn-outline-danger">Eliminar</button>
+             	            <form th:action="@{'/panelAdmin/usuarios/' + ${servicio.correo} + '/alternar-rol'}" method="post">
+								<button type="submit" class="btn btn-outline-info">Alternar Rol</button>
+							</form> 
+							<a th:href="@{/panelAdmin/usuarios/eliminar/{correo}(correo=${servicio.correo})}"
+								 class="btn btn-outline-danger">Eliminar</a>
                         </td>                        
                     </tr>
                 </tbody>
