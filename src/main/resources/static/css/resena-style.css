@@ -1,0 +1,120 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(145deg, #e3f2fd, #fdfbfb);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    max-width: 900px; /* un poco más ancho */
+    width: 100%;
+    padding: 20px;
+}
+
+.card {
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    padding: 50px; /* un poco más de espacio */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.card h3 {
+    font-weight: 700;
+    font-size: 28px;
+    color: #1a1a2e;
+    margin-bottom: 20px;
+}
+
+textarea.form-control {
+    border-radius: 15px;
+    border: 1px solid #dcdcdc;
+    background: #f9f9f9;
+    padding: 18px;
+    resize: vertical;
+    font-size: 16px;
+    transition: 0.3s ease-in-out;
+}
+
+textarea.form-control:focus {
+    border-color: #ff8800;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(255, 136, 0, 0.15);
+}
+
+.rating {
+    direction: ltr;
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.rating input[type="radio"] {
+    display: none;
+}
+
+.rating label {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.rating label:hover {
+    transform: scale(1.1);
+}
+
+.rating svg {
+    fill: #ccc;
+    width: 30px;
+    height: 30px;
+    transition: fill 0.3s ease;
+}
+
+.rating input[type="radio"]:checked ~ label svg,
+.rating input[type="radio"]:checked + label svg {
+    fill: #ffb703;
+}
+
+.rating label:hover svg,
+.rating label:hover ~ label svg {
+    fill: #ffd166;
+}
+
+.btn {
+    padding: 12px 28px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-primary {
+    background: linear-gradient(to right, #e2512c, #f0a46a); /* naranja cálido */
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(to right, #ff6a3d, #ff6e06);
+    box-shadow: 0 8px 16px rgba(255, 123, 73, 0.4);
+}
+
+.btn-secondary {
+   background: linear-gradient(to right, #000000, #3d3a38);
+    color: #fff;
+    margin-left: 10px;
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(to right, #000000, #000000);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}

@@ -17,32 +17,9 @@
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" th:href="@{/css/darkmode.css}">
-    <link rel="stylesheet" th:href="@{css/styles.css}">    
+    <link rel="stylesheet" th:href="@{/css/resena-style.css}">  
 	
-    <style>
-        .rating input[type="radio"] {
-            display: none;
-        }
-
-        .rating label {
-            cursor: pointer;
-        }
-
-        .rating svg {
-            fill: lightgray;
-            transition: fill 0.2s;
-        }
-
-        .rating input[type="radio"]:checked ~ label svg,
-        .rating input[type="radio"]:checked + label svg {
-            fill: gold;
-        }
-
-        .rating label:hover svg,
-        .rating label:hover ~ label svg {
-            fill: gold;
-        }
-    </style>
+  
 </head>
 <body>
 
