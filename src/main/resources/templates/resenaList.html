@@ -34,15 +34,15 @@
 		<div class="col-lg-8 col-md-8">
 
 			<div class="container mt-5">
-				<h2 class="mb-4 text-center">Reseñas publicadas</h2>
+				<h2 class="mb-4 text-center">Public Reviews</h2>
 
 				<div th:if="${#lists.isEmpty(resenas)}"
 					class="d-flex justify-content-center mt-5">
 					<div class="alert alert-info text-center shadow-sm w-75"
 						role="alert">
 						<i class="bi bi-chat-left-dots fs-3 me-2"></i> <strong>¡Ups!</strong>
-						Aún no hay reseñas registradas. <br> Sé el primero en
-						compartir tu experiencia.
+						There are no reviews registered yet. <br> Be the first to share your
+						experience!
 					</div>
 				</div>
 
@@ -51,16 +51,15 @@
 						<div class="card shadow-sm border-0">
 							<div class="card-body">
 								<h5 class="card-title text-dark"
-									th:text="${resena.establecimientoNombre}">Nombre del
-									Establecimiento</h5>
+									th:text="${resena.establecimientoNombre}">Name of the establishment</h5>
 								<h6 class="card-subtitle mb-2 text-muted"
-									th:text="'Por: ' + ${resena.usuario}">Usuario</h6>
-								<p class="card-text mt-3" th:text="${resena.comentario}">Comentario...</p>
+									th:text="'By: ' + ${resena.usuario}">User</h6>
+								<p class="card-text mt-3" th:text="${resena.comentario}">Comment...</p>
 								<div
 									class="d-flex justify-content-between align-items-center mt-3">
 									<span class="badge bg-warning text-dark"
-										th:text="'Calificación: ' + ${resena.calificacion}">Calificación</span>
-									<small class="text-muted" th:text="${resena.fecha}">Fecha</small>
+										th:text="'Qualification: ' + ${resena.calificacion}">Qualification</span>
+									<small class="text-muted" th:text="${resena.fecha}">Date</small>
 								</div>
 							</div>
 						</div>
