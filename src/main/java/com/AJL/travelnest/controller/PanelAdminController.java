@@ -7,11 +7,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.AJL.travelnest.dto.EstablecimientoDto;
 import com.AJL.travelnest.dto.UsuarioDto;
 import com.AJL.travelnest.entity.Establecimiento;
+import com.AJL.travelnest.entity.Usuario;
 import com.AJL.travelnest.service.UsuarioService;
 
 @Controller
@@ -43,17 +46,18 @@ public class PanelAdminController {
     	return "redirect:/panelAdmin/usuarios/listar";
     }
 	
-	@GetMapping("/actualizar/{correo}")
-    public String mostrarFormularioActualizar(@PathVariable String correo, Model model) {
-		model.addAttribute("servicios", service.obtenerPorCorreo(correo));
-        return "usuActualizar"; 
-    }
-	
-	@PostMapping("/actualizar/{correo}")
-    public String procesarActualizacion(@PathVariable String correo,
-                                        @ModelAttribute("servicioDto") UsuarioDto usuarioDto) {
-        service.actualizar(correo, usuarioDto);
-        return "redirect:/panelAdmin/usuarios/listar?actualizado";
+	@PostMapping("usuarios/{correo}/alternar-rol")
+    public String alternarRol(@PathVariable String correo, RedirectAttributes redirectAttributes) {
+        try {
+            Usuario usuarioActualizado = service.alternarRol(correo);
+            redirectAttributes.addFlashAttribute("mensaje", 
+                "Rol actualizado a: " + usuarioActualizado.getRol());
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", 
+                "Usuario no encontrado: " + correo);
+        } 
+
+        return "redirect:/panelAdmin/usuarios/listar";
     }
     
 }
