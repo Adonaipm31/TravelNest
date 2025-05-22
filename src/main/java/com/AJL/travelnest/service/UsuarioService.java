@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.AJL.travelnest.dto.EstablecimientoDto;
 import com.AJL.travelnest.dto.UsuarioDto;
 import com.AJL.travelnest.entity.Establecimiento;
 import com.AJL.travelnest.entity.Usuario;
@@ -61,5 +62,30 @@ public class UsuarioService {
         return usuarioRepository.findByCorreo(correo)
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
     }
+
+	public void eliminar(String correo) {
+		Usuario user = obtenerPorCorreo(correo);
+		
+		usuarioRepository.delete(user);
+		
+	}
+	
+	public Usuario alternarRol(String correo) {
+	    Usuario usuario = usuarioRepository.findByCorreo(correo)
+	        .orElseThrow(() -> new RuntimeException("Establecimiento no encontrado con correo: " + correo)); 
+
+	    String rolActual = usuario.getRol();
+	    
+	    if ("USER".equalsIgnoreCase(rolActual)) {
+	        usuario.setRol("ADMIN");
+	    } else if ("ADMIN".equalsIgnoreCase(rolActual)) {
+	        usuario.setRol("USER");
+	    } else {
+	        throw new IllegalArgumentException("Rol desconocido: " + rolActual);
+	    }
+
+	    return usuarioRepository.save(usuario);
+	}
+
 
 }
