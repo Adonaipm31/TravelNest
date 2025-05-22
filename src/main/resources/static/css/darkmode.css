@@ -1,6 +1,6 @@
 /* Modo oscuro para toda la página */
 .dark-mode {
-    background-color: #1a1a1a !important;
+    background-color: #3b3838 !important;
     color: white !important;
 }
 
@@ -8,7 +8,7 @@
 .dark-mode .sub-header,
 .dark-mode .header-area,
 .dark-mode footer {
-    background-color: #222;
+    background-color: #3b3838;
     color: white;
 }
 
@@ -30,7 +30,7 @@
 /* Cambia el fondo de los inputs */
 .dark-mode input, 
 .dark-mode textarea{
-    background-color: #333;
+    background-color: #3b3838;
     color: white;
-    border: 1px solid #555;
+    border: 1px solid #3b3838;
 }
