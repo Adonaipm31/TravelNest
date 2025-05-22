@@ -31,6 +31,7 @@ public class SecurityConfig {
 		return http
 				.formLogin(form -> form.loginPage("/login"))
 				.authorizeHttpRequests(auth -> auth
+			            .requestMatchers("/panelAdmin/**", "/establecimientos/**").hasRole("ADMIN")
 						.requestMatchers("/").permitAll()
 						.requestMatchers("/home").permitAll()
 						.requestMatchers("/restaurant").permitAll()
@@ -42,9 +43,9 @@ public class SecurityConfig {
 						.requestMatchers("/layout/**").permitAll()
 						.requestMatchers("/signup").permitAll()
 						.requestMatchers("/css/**", "/js/**", "/images/**").permitAll().anyRequest().authenticated()
-
+						
 				).formLogin(form -> form
-						.defaultSuccessUrl("/",true)
+						.defaultSuccessUrl("/redireccion",true)
 						)
 				.logout(config -> config.logoutSuccessUrl("/home?logout"))
 				.build();
