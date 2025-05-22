@@ -1,20 +1,17 @@
 package com.AJL.travelnest.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import com.AJL.travelnest.dto.EstablecimientoDto;
-import com.AJL.travelnest.dto.UsuarioDto;
-import com.AJL.travelnest.entity.Establecimiento;
 import com.AJL.travelnest.entity.Usuario;
+import com.AJL.travelnest.service.UsuarioDetails;
 import com.AJL.travelnest.service.UsuarioService;
 
 @Controller
@@ -30,7 +27,12 @@ public class PanelAdminController {
 	}
 
 	@GetMapping({"","/"})
-	public String admin() {
+	public String admin(Model model) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        UsuarioDetails usuario = (UsuarioDetails) auth.getPrincipal();
+
+        model.addAttribute("nombre", usuario.getNombre());
+        model.addAttribute("correo", usuario.getCorreo());
 		return "panelAdmin";
 	}
 	
@@ -58,6 +60,11 @@ public class PanelAdminController {
         } 
 
         return "redirect:/panelAdmin/usuarios/listar";
+    }
+	
+	@GetMapping("/dashboard")
+    public String dashboard() {
+        return "dashboard";
     }
     
 }

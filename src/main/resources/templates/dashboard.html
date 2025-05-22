@@ -4,15 +4,15 @@ xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" th:href="@{css/panelAdmin.css}">
    	<script th:src="@{js/panelAdmin.js}" defer></script>
    	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-    <link rel="stylesheet" th:href="@{css/panelAdmin.css}">
+    <link rel="stylesheet" th:href="@{/css/panelAdmin.css}">
     <link rel="icon" type="image/png" th:href="@{/images/Logo-TravelNest.png}">
-     <script th:src="@{/js/panelAdmin.js}" defer></script>
-      
+    <script th:src="@{/js/panelAdmin.js}" defer></script>
+    
 </head>
 <body>
 	<div class="row">
@@ -20,12 +20,9 @@ xmlns:th="http://www.thymeleaf.org">
 	<div class="col">
 			<div class="jumbotron jumbotron m-4">
 				<div class="container">
-					<h1 class="display-4">
-						Bienvenido <span class="text-capitalize text-primary" th:text="${nombre}"></span>
-						a el panel de administracion de  TravelNest
-					</h1>
-					<p class="lead">Aplicativo web para la gestión de tus planes de viaje y visita a la 
-					ciudad de cartagena</p>
+					<iframe title="Dataset A-L-J (Final)" width="80%" height="600px" 
+					src="https://app.powerbi.com/view?r=eyJrIjoiYzUzOGQ3MzEtN2JlYi00NDBjLTg1N2EtYWNjZTU0ZTdiY2I0IiwidCI6IjlkMTJiZjNmLWU0ZjYtNDdhYi05MTJmLTFhMmYwZmM0OGFhNCIsImMiOjR9" 
+					frameborder="0" allowFullScreen="true"></iframe>
 				</div>
 			</div>
 		</div>
