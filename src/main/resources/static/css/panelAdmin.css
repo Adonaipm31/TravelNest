@@ -37,6 +37,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top:10px;
+    margin-bottom:15px;
+    margin-left:5px;
+    margin-right:5px;
+    padding:6px;
 }
 
 .top-menu .logo {

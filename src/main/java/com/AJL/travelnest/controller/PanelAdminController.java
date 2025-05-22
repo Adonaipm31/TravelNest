@@ -61,5 +61,10 @@ public class PanelAdminController {
 
         return "redirect:/panelAdmin/usuarios/listar";
     }
+	
+	@GetMapping("/dashboard")
+    public String dashboard() {
+        return "dashboard";
+    }
     
 }
