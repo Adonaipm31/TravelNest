@@ -77,8 +77,32 @@
             <li><a th:href="@{/bars}" class="">Bars</a></li>
             <li><a th:href="@{/resena/listar}" class="">Reviews</a></li>            
             <li><a th:href="@{/contact}">Contact Us</a></li>
-            <li sec:authorize="isAuthenticated()"><a href="#"><i class="fa fa-calendar"></i>Events calendar</a></li>
-          </ul>
+            <li sec:authorize="isAuthenticated()">
+  <style>
+    .header-area .main-nav .nav li:last-child a {
+      background-color: #1e1e1e;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 400;
+      text-transform: none;
+      border-radius: 20px;
+      padding-left: 0px;
+    }
+
+    .header-area .main-nav .nav li:last-child a i {
+      background-color: #f35525;
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+      margin-right: 10px;
+      border-radius: 50%;
+      margin-left: -1px;
+    }
+  </style>
+            <a href="#"><i class="fa fa-calendar"></i>Events calendar</a></li>
+            </ul>
           
           <a class="menu-trigger">
             <span>Menu</span>
@@ -88,3 +112,4 @@
     </div>
   </div>
 </header>
+
