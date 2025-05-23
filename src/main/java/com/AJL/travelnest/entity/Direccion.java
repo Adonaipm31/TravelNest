@@ -12,6 +12,10 @@ public class Direccion {
 		this.numero = numero;
 		this.barrio = barrio;
 	}
+	
+	public Direccion() {
+		
+	}
 
 	public String getCalle() {
 		return calle;

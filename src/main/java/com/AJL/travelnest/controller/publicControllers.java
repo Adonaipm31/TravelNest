@@ -1,10 +1,16 @@
 package com.AJL.travelnest.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.AJL.travelnest.dto.TipoServicio;
+import com.AJL.travelnest.entity.Establecimiento;
 import com.AJL.travelnest.service.EstablecimientoService;
 
 @Controller
@@ -54,4 +60,38 @@ public class publicControllers {
 	private String home() {
 		return "index.html";
 	}
+	
+	@GetMapping("/hotel/filtro")
+	public String listarEstablecimixDire(
+	        Model model,
+	        @RequestParam List<String> direccion,
+	        @RequestParam TipoServicio tipo) {
+
+	    List<Establecimiento> resultado = service.buscarPorBarriosYTipo(direccion, tipo);    	
+	    model.addAttribute("servicios", resultado);
+	    return "hotels";
+	}
+
+	@GetMapping("/restaurant/filtro")
+	public String listarRestaxDire(
+	        Model model,
+	        @RequestParam List<String> direccion,
+	        @RequestParam TipoServicio tipo) {
+
+	    List<Establecimiento> resultado = service.buscarPorBarriosYTipo(direccion, tipo);    	
+	    model.addAttribute("servicios", resultado);
+	    return "Restaurants";
+	}
+	
+	@GetMapping("/bars/filtro")
+	public String listarBarxDire(
+	        Model model,
+	        @RequestParam List<String> direccion,
+	        @RequestParam TipoServicio tipo) {
+
+	    List<Establecimiento> resultado = service.buscarPorBarriosYTipo(direccion, tipo);    	
+	    model.addAttribute("servicios", resultado);
+	    return "bars";
+	}
+	
 }

@@ -32,9 +32,15 @@
             <label for="direccion" class="form-label">Dirección</label>
             <div class="input-group">
                 <input type="text" th:field="*{caracteristicas.direccion.calle}" class="form-control" placeholder="Calle" required>
-                <input type="text" th:field="*{caracteristicas.direccion.numero}" class="form-control" placeholder="N.º" required>
-                <input type="text" th:field="*{caracteristicas.direccion.barrio}" class="form-control" placeholder="Barrio" required>
-            </div>
+                <input type="text" th:field="*{caracteristicas.direccion.numero}" class="form-control" placeholder="N.º" required> 
+                <label for="barrio">Barrio</label> 
+                <select th:field="*{caracteristicas.direccion.barrio}"
+							class="form-control" required>
+							<option value="">-- Selecciona un barrio --</option>
+							<option th:each="barrio : ${barriosDisponibles}"
+								th:value="${barrio}" th:text="${barrio}"></option>
+				</select>
+			</div>
         </div>
         <div class="col-md-6 mb-3">
             <label for="tipoCocinaRaw">Tipos de Cocina (solo para Restaurantes)</label>

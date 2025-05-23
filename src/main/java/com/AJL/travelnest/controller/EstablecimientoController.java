@@ -29,6 +29,8 @@ public class EstablecimientoController {
         model.addAttribute("servicioDto", new EstablecimientoDto());
         model.addAttribute("tiposServicio", TipoServicio.values()); 
         model.addAttribute("servicios", service.listar());
+        List<String> barrios = List.of("Bocagrande", "Getsemani", "Laguito", "Centro", "Castillogrande");
+        model.addAttribute("barriosDisponibles", barrios);
         return "establecimientoRegister";
     }
     @PostMapping("/registrar")
@@ -50,7 +52,7 @@ public class EstablecimientoController {
         model.addAttribute("servicios", service.listar());
         return "establecimientos";
     }
-    
+        
     @GetMapping("/actualizar/{id}")
     public String mostrarFormularioActualizar(@PathVariable String id, Model model) {
         Establecimiento entidad = service.obtenerPorId(id);
