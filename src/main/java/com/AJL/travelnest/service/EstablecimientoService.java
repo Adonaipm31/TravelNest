@@ -6,6 +6,9 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.AJL.travelnest.dto.HorarioDTO;
@@ -25,15 +28,17 @@ public class EstablecimientoService {
 	    public EstablecimientoService(EstablecimientoRepository servicioRepository) {
 	        this.servicioRepository = servicioRepository;
 	    }
-
+	    
+	    @Cacheable(value = "establecimientos", key = "'hoteles'")
 	    public List<Establecimiento> obtenerHoteles() {
 	        return servicioRepository.findByTipo(TipoServicio.HOTEL);
 	    }
-	    
+	    @Cacheable(value = "establecimientos", key = "'bares'")
 	    public List<Establecimiento> obtenerBares() {
 	        return servicioRepository.findByTipo(TipoServicio.BAR);
 	    }
 	    
+	    @Cacheable(value = "establecimientos", key = "'restaurantes'")
 	    public List<Establecimiento> obtenerRestaurante() {
 	        return servicioRepository.findByTipo(TipoServicio.RESTAURANTE);
 	    }
@@ -42,6 +47,7 @@ public class EstablecimientoService {
 	        return servicioRepository.findByTipo(TipoServicio.ROOFTOP);
 	    }
 	    
+	    @Cacheable(value = "establecimientos")
 	    public List<Establecimiento> listar() {
 	        return servicioRepository.findAll();
 	    }
@@ -49,17 +55,13 @@ public class EstablecimientoService {
 	    public List<Establecimiento> listarTipo(TipoServicio tipo) {
 	        return servicioRepository.findByTipo(tipo);
 	    }
-
+	    
 	    public Establecimiento registrarServicio(EstablecimientoDto servicioDTO) {
 
 	        Establecimiento servicio = mapearDTOaEntidad(servicioDTO);
 	        return servicioRepository.save(servicio);
 	    }
-	    
-	    public List<Establecimiento> obtenerTodo() {
-	        return servicioRepository.findAll();
-	    }
-	    
+	    	    
 	    private List<HorarioAtencion> mapearHorarioAtencion(List<HorarioDTO> horarioDto) {
 			if (horarioDto == null) return new ArrayList<>();
 			
@@ -146,7 +148,6 @@ public class EstablecimientoService {
 	        return dto;
 	    }
 
-
 	    public List<Establecimiento> buscarPorNombre(String nombre) {
 	        return servicioRepository.findByCaracteristicasNombreContainingIgnoreCase(nombre);
 	    }
@@ -155,6 +156,7 @@ public class EstablecimientoService {
 	        return servicioRepository.findById(id);
 	    }
 	    
+	    @Cacheable(value = "establecimientos", key = "#id")
 	    public Establecimiento obtenerPorId(String id) {
 	        return servicioRepository.findById(id)
 	            .orElse(null);

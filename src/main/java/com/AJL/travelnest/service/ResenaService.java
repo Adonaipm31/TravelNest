@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.AJL.travelnest.dto.ResenaDto;
@@ -44,7 +45,7 @@ public class ResenaService {
 		
 		return repo.save(resena);
 	} 
-	
+    @Cacheable(value = "resenas", key = "#idEstablecimiento")
 	public List<ResenaViewDto> listarConNombreEstablecimiento(String idEstablecimiento) {
 	    List<Resena> resenas = repo.findAll();
 	    List<ResenaViewDto> resultado = new ArrayList<>();
@@ -74,7 +75,8 @@ public class ResenaService {
 
 	    return resultado;
 	}
-
+    
+    @Cacheable(value = "resena")
 	public List<ResenaViewDto> listarTodo() {
 	    List<Resena> resenas = repo.findAll();
 	    List<ResenaViewDto> resultado = new ArrayList<>();
