@@ -45,34 +45,6 @@ public class EstablecimientoController {
         return "redirect:/establecimientos/listar";
     }
 
-    @GetMapping("/filtrar")
-    public String filtrarPorTipo(@RequestParam("tipo") TipoServicio tipo, Model model) {
-        List<Establecimiento> resultados;  
-        switch (tipo) {
-        case RESTAURANTE:
-            resultados = service.obtenerRestaurante();
-            break;
-        case BAR:
-            resultados = service.obtenerBares();
-            break;
-        case HOTEL:
-            resultados = service.obtenerHoteles();
-            break;
-        case ROOFTOP:
-            resultados = service.obtenerHoteles();
-            break;
-        default:
-            throw new IllegalArgumentException("Tipo de servicio no reconocido: " + tipo);
-    }
-    	 
-    	model.addAttribute("service", resultados);
-    	model.addAttribute("tiposServicio", TipoServicio.values()); 
-    	model.addAttribute("establecimientoDto", new EstablecimientoDto()); // Para mantener el formulario vacío
-
-    	return "redirect:/establecimientos/listar";    
-    	
-    }
-    
     @GetMapping("/listar")
     public String listarEstablecimientos(Model model) {
         model.addAttribute("servicios", service.listar());

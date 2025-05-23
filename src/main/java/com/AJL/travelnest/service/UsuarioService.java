@@ -3,6 +3,8 @@ package com.AJL.travelnest.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -54,15 +56,17 @@ public class UsuarioService {
 		return usuarioRepository.findByCorreo(correo).isPresent();
 	}
     
+    @Cacheable(value = "usuarios")
     public List<Usuario> listar(){
     	return usuarioRepository.findAll();
     }
-    
+    @Cacheable(value = "usuarios", key = "#correo")
     public Usuario obtenerPorCorreo(String correo) {
         return usuarioRepository.findByCorreo(correo)
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
     }
-
+    
+    @CacheEvict(value = "usuarios", key = "#correo")
 	public void eliminar(String correo) {
 		Usuario user = obtenerPorCorreo(correo);
 		
