@@ -1,10 +1,8 @@
 package com.AJL.travelnest.entity;
 
-import com.AJL.travelnest.dto.DireccionDTO;
-
 public class CaracteristicaServicio {
     private String nombre;
-    private DireccionDTO direccion;
+    private Direccion direccion;
     private String image;
     private String telefono; 
     private double precioPromedio;
@@ -14,7 +12,7 @@ public class CaracteristicaServicio {
 		super();
 	}
 
-	public CaracteristicaServicio(String nombre, DireccionDTO direccion, String image, String telefono,
+	public CaracteristicaServicio(String nombre, Direccion direccion, String image, String telefono,
 			double precioPromedio, double calificacion) {
 		super();
 		this.nombre = nombre;
@@ -33,11 +31,11 @@ public class CaracteristicaServicio {
 		this.nombre = nombre;
 	}
 
-	public DireccionDTO getDireccion() {
+	public Direccion getDireccion() {
 		return direccion;
 	}
 
-	public void setDireccion(DireccionDTO direccion) {
+	public void setDireccion(Direccion direccion) {
 		this.direccion = direccion;
 	}
 

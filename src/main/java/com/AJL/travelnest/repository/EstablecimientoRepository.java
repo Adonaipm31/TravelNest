@@ -14,4 +14,6 @@ public interface EstablecimientoRepository extends MongoRepository<Establecimien
 	
 	List<Establecimiento>findByTipo(TipoServicio tipo);
 	List<Establecimiento> findByCaracteristicasNombreContainingIgnoreCase(String nombre);
+	List<Establecimiento> findByCaracteristicasDireccionBarrioInIgnoreCaseAndTipo(List<String> barrios, TipoServicio tipo);
+
 }

@@ -2,7 +2,7 @@ package com.AJL.travelnest.dto;
 
 import jakarta.validation.constraints.NotBlank;
 
-public class DireccionDTO {
+public class DireccionDto {
 	@NotBlank
 	private String calle;
     @NotBlank

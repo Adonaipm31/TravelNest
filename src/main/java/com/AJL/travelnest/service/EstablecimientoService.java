@@ -6,16 +6,16 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.AJL.travelnest.dto.HorarioDTO;
 import com.AJL.travelnest.dto.CaracteristicasDTO;
+import com.AJL.travelnest.dto.DireccionDto;
 import com.AJL.travelnest.dto.EstablecimientoDto;
 import com.AJL.travelnest.dto.TipoServicio;
 import com.AJL.travelnest.entity.CaracteristicaServicio;
+import com.AJL.travelnest.entity.Direccion;
 import com.AJL.travelnest.entity.HorarioAtencion;
 import com.AJL.travelnest.entity.Establecimiento;
 import com.AJL.travelnest.repository.EstablecimientoRepository;
@@ -29,16 +29,13 @@ public class EstablecimientoService {
 	        this.servicioRepository = servicioRepository;
 	    }
 	    
-	    @Cacheable(value = "establecimientos", key = "'hoteles'")
 	    public List<Establecimiento> obtenerHoteles() {
 	        return servicioRepository.findByTipo(TipoServicio.HOTEL);
 	    }
-	    @Cacheable(value = "establecimientos", key = "'bares'")
 	    public List<Establecimiento> obtenerBares() {
 	        return servicioRepository.findByTipo(TipoServicio.BAR);
 	    }
 	    
-	    @Cacheable(value = "establecimientos", key = "'restaurantes'")
 	    public List<Establecimiento> obtenerRestaurante() {
 	        return servicioRepository.findByTipo(TipoServicio.RESTAURANTE);
 	    }
@@ -75,6 +72,14 @@ public class EstablecimientoService {
 			            })
 			            .collect(Collectors.toList());
 		}
+	    
+	    private Direccion mapearDireccion(DireccionDto dto) {
+	        Direccion direccion = new Direccion();
+	        direccion.setCalle(dto.getCalle());
+	        direccion.setNumero(dto.getNumero());
+	        direccion.setBarrio(dto.getBarrio());
+	        return direccion;
+	    }
 
 	    private Establecimiento mapearDTOaEntidad(EstablecimientoDto dto) {
 	        Establecimiento servicio = new Establecimiento();
@@ -83,9 +88,14 @@ public class EstablecimientoService {
 	        caracteristicas.setNombre(dto.getCaracteristicas().getNombre());
 	        caracteristicas.setTelefono(dto.getCaracteristicas().getTelefono());
 	        caracteristicas.setImage(dto.getCaracteristicas().getImage());
-	        caracteristicas.setDireccion(dto.getCaracteristicas().getDireccion());
+
+	        // Aquí se usa el nuevo método para convertir el DTO a entidad
+	        Direccion direccion = mapearDireccion(dto.getCaracteristicas().getDireccion());
+	        caracteristicas.setDireccion(direccion);
+
 	        caracteristicas.setCalificacion(dto.getCaracteristicas().getCalificacion());
 	        caracteristicas.setPrecioPromedio(dto.getCaracteristicas().getPrecioPromedio());
+
 	        servicio.setTipo(dto.getTipo());
 	        servicio.setTipoAmbiente(dto.getTipoAmbiente());
 	        servicio.setHorarioAtencion(mapearHorarioAtencion(dto.getHorarioAtencion()));
@@ -94,7 +104,8 @@ public class EstablecimientoService {
 
 	        return servicio;
 	    }
-	    
+
+	    	    
 	    private void actualizarEntidadDesdeDTO(Establecimiento entidad, EstablecimientoDto dto) {
 	        entidad.setTipo(dto.getTipo());
 	        entidad.setTipoAmbiente(dto.getTipoAmbiente());
@@ -106,14 +117,22 @@ public class EstablecimientoService {
 	            caracteristicas = new CaracteristicaServicio();
 	            entidad.setCaracteristicas(caracteristicas);
 	        }
-
+	        
 	        caracteristicas.setNombre(dto.getCaracteristicas().getNombre());
 	        caracteristicas.setTelefono(dto.getCaracteristicas().getTelefono());
 	        caracteristicas.setImage(dto.getCaracteristicas().getImage());
-	        caracteristicas.setDireccion(dto.getCaracteristicas().getDireccion());
+	        caracteristicas.setDireccion(mapearDireccion(dto.getCaracteristicas().getDireccion()));
 	        caracteristicas.setCalificacion(dto.getCaracteristicas().getCalificacion());
 	        caracteristicas.setPrecioPromedio(dto.getCaracteristicas().getPrecioPromedio());
 	    }
+	    private DireccionDto mapearDireccionADTO(Direccion direccion) {
+	        DireccionDto dto = new DireccionDto();
+	        dto.setCalle(direccion.getCalle());
+	        dto.setNumero(direccion.getNumero());
+	        dto.setBarrio(direccion.getBarrio());
+	        return dto;
+	    }
+
 	    
 	    public EstablecimientoDto mapearEntidadADTO(Establecimiento entidad) {
 	        EstablecimientoDto dto = new EstablecimientoDto();
@@ -121,18 +140,23 @@ public class EstablecimientoService {
 	        dto.setTipo(entidad.getTipo());
 	        dto.setTipoAmbiente(entidad.getTipoAmbiente());
 	        dto.setTipoCosina(entidad.getTipoCosina());
+
 	        CaracteristicaServicio caracteristicas = entidad.getCaracteristicas();
 	        if (caracteristicas != null) {
 	            CaracteristicasDTO caracteristicaDto = new CaracteristicasDTO();
 	            caracteristicaDto.setNombre(caracteristicas.getNombre());
 	            caracteristicaDto.setTelefono(caracteristicas.getTelefono());
 	            caracteristicaDto.setImage(caracteristicas.getImage());
-	            caracteristicaDto.setDireccion(caracteristicas.getDireccion());
+
+	            // Corregido: mapear Direccion a DTO
+	            caracteristicaDto.setDireccion(mapearDireccionADTO(caracteristicas.getDireccion()));
+
 	            caracteristicaDto.setCalificacion(caracteristicas.getCalificacion());
 	            caracteristicaDto.setPrecioPromedio(caracteristicas.getPrecioPromedio());
+
 	            dto.setCaracteristicas(caracteristicaDto);
 	        }
-	        
+
 	        if (entidad.getHorarioAtencion() != null) {
 	            List<HorarioDTO> listaHorarios = entidad.getHorarioAtencion().stream().map(horario -> {
 	                HorarioDTO horarioDTO = new HorarioDTO();
@@ -176,6 +200,10 @@ public class EstablecimientoService {
 	    			.orElseThrow(() -> new RuntimeException("Establecimiento no encontrado con ID: " + id));  	
 
 	    	servicioRepository.delete(establecimiento);
-	    }	    	
+	    }
+	    
+	    public List<Establecimiento> buscarPorBarriosYTipo(List<String> barrios, TipoServicio tipo) {
+	        return servicioRepository.findByCaracteristicasDireccionBarrioInIgnoreCaseAndTipo(barrios, tipo);
+	    }  	
 	   
 }

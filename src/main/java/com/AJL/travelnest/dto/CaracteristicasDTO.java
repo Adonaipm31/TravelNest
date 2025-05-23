@@ -7,7 +7,7 @@ public class CaracteristicasDTO {
 	
     private String nombre;
     @NotNull
-    private DireccionDTO direccion;
+    private DireccionDto direccion;
     @NotBlank
     private String image;
     private String telefono; 
@@ -20,10 +20,10 @@ public class CaracteristicasDTO {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public DireccionDTO getDireccion() {
+	public DireccionDto getDireccion() {
 		return direccion;
 	}
-	public void setDireccion(DireccionDTO direccion) {
+	public void setDireccion(DireccionDto direccion) {
 		this.direccion = direccion;
 	}
 	public String getImage() {
